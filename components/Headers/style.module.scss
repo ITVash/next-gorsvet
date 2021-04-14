@@ -1,0 +1,161 @@
+.header {
+  padding: 25px 40px;
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;  
+  grid-template-areas: "logo info" "container container" "col-1 col-3" "col-2 col-2";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 42px 20px;
+  .container {
+    grid-area: container;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+  .logo {
+    margin-right: auto;
+    grid-area: logo;
+    z-index: 10;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: auto;
+    }
+  }
+  .info {
+    margin-left: auto;
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
+    z-index: 10;
+    color: #fff;
+  }
+  .col1 {
+    grid-area: col-1;
+    margin-right: auto;
+    font-size: 12px;
+    height: 42px;
+    z-index: 10;
+    a {
+     display: flex;
+     align-items: center;
+     flex-direction: row;
+     color: #fff;
+     img {
+       margin-right: 10px;
+       height: 42px;
+       object-position: 0 5px;
+     }
+    }
+  }
+  .col3 {
+    grid-area: col-3;
+    font-size: 12px;
+    margin-left: auto;
+   display: flex;
+   align-items: center;
+   color: #fff;
+   height: 42px;
+   z-index: 10;
+  }
+  .col2 {
+    grid-area: col-2;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    span {
+      &::after, &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background-color: #FFB800;
+        width: 45%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &::after {
+        left: 0;
+      }
+      &::before {
+        right: 0;
+      }
+    }
+   }
+}
+
+/* Large desktops and laptops */
+/* @media (min-width: 1200px) {
+
+} */
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .header {
+    grid-template-areas: "logo" "info" "col-1" "col-3" "col-2";
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 1fr 42px 42px 20px;
+    //padding-bottom: 65px;
+    .logo {
+      margin: 0 auto;
+      img {
+        width: 180px;
+      }
+    }
+    .info {
+      margin: 0 auto;
+      font-size: 14px;
+      .phone {
+        font-size: 18px;
+      }
+    }
+    .col-1, .col-3 {
+      margin: 0 auto;
+      font-size: 16px;
+    }
+  }
+}
+
+/* Iphone 5 */
+@media (max-width: 320px) {
+  .header {
+    grid-template-areas: "logo" "info" "col-1" "col-3" "col-2";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 42px 20px;
+    .logo {
+      img {
+        width: 100px;
+      }
+    }
+    .info {
+      font-size: 12px;
+      .phone {
+        font-size: 16px;
+      }
+    }
+  }
+}

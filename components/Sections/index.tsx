@@ -11,7 +11,7 @@ const Sections: React.FC<TSections> = ({ children, types, src, title }) => {
 	return (
 		<>
 			{types === "video" && (
-				<section className={style.container}>
+				<section className={style.container_b}>
 					<video preload='auto' width='100%' height='auto' autoPlay loop muted>
 						<source src={src} type='video/webm; codecs="vp8, vorbis"' />
 					</video>

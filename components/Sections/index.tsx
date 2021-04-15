@@ -22,8 +22,8 @@ const Sections: React.FC<TSections> = ({ children, types, src, title }) => {
 				<section
 					className={style.container}
 					style={{
-						backgroundSize: "100% 100%",
 						background: `url(${src}) top center no-repeat`,
+						backgroundSize: "100% 100%",
 					}}>
 					<div className={style.wrap}>{children}</div>
 				</section>

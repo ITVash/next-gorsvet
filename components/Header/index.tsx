@@ -2,8 +2,10 @@ import { CaretDownOutlined } from "@ant-design/icons"
 import React from "react"
 
 import style from "./style.module.scss"
-
-const Header: React.FC = ({ children }) => {
+type THeader = {
+	onClick?: () => void
+}
+const Header: React.FC<THeader> = ({ children, onClick }) => {
 	return (
 		<>
 			<header className={style.header}>
@@ -30,10 +32,18 @@ const Header: React.FC = ({ children }) => {
 				</div>
 				<div className={style.col2}>
 					<span>
-						<CaretDownOutlined style={{ color: "#FFB800", fontSize: 24 }} />
+						<CaretDownOutlined
+							style={{
+								color: "#FFB800",
+								fontSize: 24,
+								cursor: "pointer",
+								outline: "none",
+							}}
+							onClick={onClick}
+						/>
 					</span>
 				</div>
-				<div className={style.col3}>Коммерческие услуги</div>
+				{/* <div className={style.col3}>Коммерческие услуги</div> */}
 			</footer>
 		</>
 	)

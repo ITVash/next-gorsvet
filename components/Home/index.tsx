@@ -11,14 +11,14 @@ const Homes: React.FC = () => {
 					height: "100%",
 					display: "flex",
 					alignItems: "center",
-					marginTop: "-70px",
+					marginTop: "-40px",
 				}}>
 				<div>
-					<h2>
+					<h1 style={{ fontSize: "48px", fontWeight: 700 }}>
 						Делаем жизнь в нашем
 						<br />
 						городе ярче!
-					</h2>
+					</h1>
 					<button className='button'>услуги</button>
 				</div>
 			</div>

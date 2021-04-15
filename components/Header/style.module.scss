@@ -4,7 +4,7 @@
   display: grid;
   grid-template-areas: "logo info";
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px;
+  grid-template-rows: 60px;
   z-index: 1;
   background:transparent;
   width: 100%;
@@ -16,7 +16,7 @@
     z-index: 10;
     img {
       object-fit: cover;
-      height: 75px;
+      height: 60px;
       width: auto;
     }
   }
@@ -29,7 +29,7 @@
     text-align: right;
     z-index: 10;
     color: #fff;
-    line-height: 100px;
+    line-height: 60px;
     p {
       img {
         margin-right: 10px;

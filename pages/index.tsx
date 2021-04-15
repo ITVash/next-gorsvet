@@ -4,6 +4,7 @@ import ReactPS from "react-page-scroller"
 import React from "react"
 import Header from "components/Header"
 import Homes from "components/Home"
+import Services from "components/Services"
 
 export default function Home() {
 	const [currPage, setCurrPage] = React.useState<number>(0)
@@ -23,9 +24,7 @@ export default function Home() {
 			<Header onClick={nextPage}>
 				<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
 					<Homes />
-					<Sections types='image' src='/img/service.jpg'>
-						Экран 2
-					</Sections>
+					<Services />
 					<Sections types='image' src='/img/service_d.jpg'>
 						Экран 3
 					</Sections>

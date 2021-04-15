@@ -1,9 +1,41 @@
+.service_box {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  height: auto;
+  flex-wrap: wrap;
+  padding-bottom: 150px;
+}
 .button {
+  outline: none;
   background: linear-gradient(96.67deg, #FFB800 21.07%, #FFFFFF 109.65%);
   text-transform: uppercase;
   border-radius: 100px;
   border: none;
   padding: 10px 40px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  cursor: pointer;
+  transition: all 0.300s linear;
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  &:hover {
+    transition: all 0.300s linear;
+    background: linear-gradient(96.67deg, #FFB800 109.65%, #FFFFFF 21.07%);
+    box-shadow: 0px 4px 35px 0px #FFDB7E6E;
+  }
+}
+.button_s {
+  text-transform: uppercase;
+  border: none;
+  padding: 10px 15px;
+  width: auto;
+  outline: none;
+  background: linear-gradient(96.67deg, #FFB800 21.07%, #FFFFFF 109.65%);
+  box-shadow: 0px 4px 35px rgba(255, 184, 0, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 100px;
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
@@ -25,4 +57,38 @@
 }
 .ml-120 {
   margin-left:120px;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .button_s {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .service_box {
+    padding-bottom: 50px;
+  }
+}
+
+ /* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  
+}
+
+ @media (max-width: 480px) {
+  
+ }
+ /* Iphone 5 */
+@media (max-width: 320px) {
+  
 }

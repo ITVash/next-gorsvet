@@ -6,8 +6,15 @@ type TSections = {
 	types?: "video" | "image"
 	src?: string
 	title?: string
+	icon?: string
 }
-const Sections: React.FC<TSections> = ({ children, types, src, title }) => {
+const Sections: React.FC<TSections> = ({
+	children,
+	types,
+	src,
+	title,
+	icon,
+}) => {
 	return (
 		<>
 			{types === "video" && (
@@ -25,7 +32,15 @@ const Sections: React.FC<TSections> = ({ children, types, src, title }) => {
 						background: `url(${src}) top center no-repeat`,
 						backgroundSize: "100% 100%",
 					}}>
-					<div className={style.wrap}>{children}</div>
+					<div className={style.wrap}>
+						{title && title.length > 1 && (
+							<h1 className={style.titles}>
+								<img src={icon} alt='icon' />
+								{title}
+							</h1>
+						)}
+						{children}
+					</div>
 				</section>
 			)}
 		</>

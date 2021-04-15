@@ -29,9 +29,11 @@
 .button_s {
   text-transform: uppercase;
   border: none;
-  padding: 10px 15px;
-  width: auto;
+  width: 210px;
+  height: 46px;
   outline: none;
+  margin: 0 auto;
+  padding: 10px 15px;
   backdrop-filter: blur(4px);
   border-radius: 100px;
   font-weight: 700;
@@ -39,7 +41,6 @@
   line-height: 28px;
   cursor: pointer;
   transition: all 0.300s linear;
-  backdrop-filter: blur(4px);
   background: linear-gradient(96.67deg, #FFB800 109.65%, #FFFFFF 21.07%);
   z-index: 1;
   &:hover {

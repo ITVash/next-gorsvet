@@ -4,9 +4,10 @@
   backdrop-filter: blur(4px);
   border-radius: 35px;
   padding: 5px 15px;
-  height: 100%;
+  min-height: 454px;
+  width: 338px;
+  margin: 0 70px;
   display: flex;
-  width: 400px;
   justify-content: center;
   text-align: center;
   flex-direction: column;
@@ -32,6 +33,7 @@
 @media (min-width: 1200px) and (max-width: 1400px) {
   .box {
     width: 250px;
+    min-height: auto;
     img {
       height: 100px;
       width: 100px;

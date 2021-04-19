@@ -1,6 +1,9 @@
 .table {
   margin: 0 auto;
   border-spacing: 93px 44px;
+  height: 100%;
+  display: block;
+  width: 64%;
   thead {
     th {
       width: 303px;
@@ -32,6 +35,9 @@
     }
   }
   tbody {
+    display: block;
+    overflow: auto;
+    height: 575px;
     text-align: center;
     tr {
       td {
@@ -88,6 +94,9 @@
   .table {
     margin: 0 auto;
     border-spacing: 70px 25px;
+    height: 100%;
+    display: block;
+    width: 86%;
     thead {
       th {
         width: 303px;
@@ -107,7 +116,9 @@
       }
     }
     tbody {
-      text-align: center;
+      height: 200px;
+      display: block;
+      overflow: auto;
       tr {
         td {
           width: 303px;

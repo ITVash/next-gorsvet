@@ -42,8 +42,13 @@
         box-shadow: 0px 4px 50px #FFFFFF;
         backdrop-filter: blur(4px);
         font-weight: 300;
-        font-size: 13px;
-        line-height: 15px;
+        font-size: 24px;
+        line-height: 28px;
+        &:first-child {
+          font-weight: 300;
+          font-size: 13px;
+          line-height: 15px;
+        }
         &:first-child, &:last-child {
           width: 246px;
         }
@@ -75,4 +80,83 @@
       }
     }
   }
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .table {
+    margin: 0 auto;
+    border-spacing: 70px 25px;
+    thead {
+      th {
+        width: 303px;
+        height: 64px;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+  
+        &:first-child {
+          height: 64px;
+          width: 246px;
+        }
+        &:last-child {
+          width: 246px;
+          height: 64px;
+        }
+      }
+    }
+    tbody {
+      text-align: center;
+      tr {
+        td {
+          width: 303px;
+          height: 64px;
+          padding: 10px 15px;
+          font-weight: 300;
+          font-size: 13px;
+          line-height: 15px;
+          &:first-child, &:last-child {
+            width: 246px;
+          }
+        }
+        &:last-child {
+          td {
+            width: 303px;
+            height: 64px;
+            &:first-child {
+              width: 246px;
+              height: 64px;
+            }
+            &:last-child {
+              width: 246px;
+              height: 64px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+ /* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  
+}
+
+ @media (max-width: 480px) {
+  
+ }
+ /* Iphone 5 */
+@media (max-width: 320px) {
+  
 }

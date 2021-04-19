@@ -1,7 +1,10 @@
 import Sections from "components/Sections"
 import React from "react"
+interface IHomeProps {
+	onClick?: () => void
+}
 
-const Homes: React.FC = () => {
+const Homes: React.FC<IHomeProps> = ({ onClick }) => {
 	return (
 		<Sections types='video' src='/video/1.webm'>
 			<div
@@ -19,7 +22,9 @@ const Homes: React.FC = () => {
 						<br />
 						городе ярче!
 					</h1>
-					<button className='button'>услуги</button>
+					<button className='button' onClick={onClick}>
+						услуги
+					</button>
 				</div>
 			</div>
 		</Sections>

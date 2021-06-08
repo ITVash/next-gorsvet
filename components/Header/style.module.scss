@@ -1,106 +1,147 @@
 .header {
-  position: fixed;
-  padding: 0 40px;
-  display: grid;
-  grid-template-areas: "logo info";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 60px;
-  z-index: 1;
-  background:transparent;
-  width: 100%;
-  top: 25px;
-  left: 0;
-  .logo {
-    margin-right: auto;
-    grid-area: logo;
-    z-index: 10;
-    img {
-      object-fit: cover;
-      height: 60px;
-      width: auto;
-    }
-  }
-  .info {
-    margin-left: auto;
-    grid-area: info;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    text-align: right;
-    z-index: 10;
-    color: #fff;
-    line-height: 60px;
-    p {
-      img {
-        margin-right: 10px;
-      }
-    }
-  }
+	position: fixed;
+	padding: 0 40px;
+	display: grid;
+	grid-template-areas: "logo info";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 60px;
+	z-index: 1;
+	background: transparent;
+	width: 100%;
+	top: 25px;
+	left: 0;
+	.logo {
+		margin-right: auto;
+		grid-area: logo;
+		z-index: 10;
+		img {
+			object-fit: cover;
+			height: 60px;
+			width: auto;
+		}
+	}
+	.info {
+		margin-left: auto;
+		grid-area: info;
+		display: flex;
+		flex-direction: column;
+		justify-content: right;
+		text-align: right;
+		z-index: 10;
+		color: #fff;
+		line-height: 60px;
+		p {
+			transition: all 0.5s linear;
+			img {
+				margin-right: 10px;
+			}
+		}
+	}
 }
 .footer {
-  display: grid;
-  grid-template-areas: "col-1" "col-2";
-  grid-template-columns: 1fr;
-  grid-template-rows: 42px 20px;
-  position: fixed;
-  left: 0;
-  width: 100%;
-  padding: 0 40px;
-  bottom: 15px;
-  z-index: 1px;
-  .col1 {
-    grid-area: col-1;
-    margin-right: auto;
-    font-size: 12px;
-    height: 42px;
-    z-index: 10;
-    a {
-     display: flex;
-     align-items: center;
-     flex-direction: row;
-     color: #fff;
-     img {
-       margin-right: 10px;
-       height: 42px;
-       object-position: 0 5px;
-     }
-    }
-  }
-  .col3 {
-    grid-area: col-3;
-    font-size: 12px;
-    margin-left: auto;
-   display: flex;
-   align-items: center;
-   color: #fff;
-   height: 42px;
-   z-index: 10;
-  }
-  .col2 {
-    grid-area: col-2;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    span {
-      &::after, &::before {
-        content: '';
-        position: absolute;
-        height: 2px;
-        background-color: #FFB800;
-        width: 45%;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      &::after {
-        left: 0;
-      }
-      &::before {
-        right: 0;
-      }
-    }
-   }
+	display: grid;
+	grid-template-areas: "col-1" "col-2";
+	grid-template-columns: 1fr;
+	grid-template-rows: 42px 20px;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	padding: 0 40px;
+	bottom: 15px;
+	z-index: 1px;
+	transition: all 0.5s linear;
+	.col1 {
+		grid-area: col-1;
+		margin-right: auto;
+		font-size: 12px;
+		height: 42px;
+		z-index: 10;
+		a {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			color: #fff;
+			img {
+				margin-right: 10px;
+				height: 42px;
+				object-position: 0 5px;
+			}
+		}
+	}
+	.col3 {
+		grid-area: col-3;
+		font-size: 12px;
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		color: #fff;
+		height: 42px;
+		z-index: 10;
+	}
+	.col2 {
+		grid-area: col-2;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10;
+		span {
+			&::after,
+			&::before {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: #ffb800;
+				width: 45%;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&::after {
+				left: 0;
+			}
+			&::before {
+				right: 0;
+			}
+		}
+	}
+	.col2_b {
+		grid-area: col-2;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10;
+		span {
+			&::after,
+			&::before {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: #000;
+				width: 45%;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&::after {
+				left: 0;
+			}
+			&::before {
+				right: 0;
+			}
+		}
+	}
+	.col2_n {
+		grid-area: col-2;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10;
+	}
 }

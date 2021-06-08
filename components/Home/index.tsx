@@ -17,10 +17,15 @@ const Homes: React.FC<IHomeProps> = ({ onClick }) => {
 					marginTop: "-40px",
 				}}>
 				<div>
-					<h1 style={{ fontSize: "48px", fontWeight: 700 }}>
-						Делаем жизнь в нашем
-						<br />
-						городе ярче!
+					<h1
+						style={{
+							width: "564px",
+							fontFamily: "Roboto Condensed",
+							fontWeight: "bold",
+							fontSize: "48px",
+							lineHeight: "56px",
+						}}>
+						Делаем жизнь в нашем городе ярче!
 					</h1>
 					<button className='button' onClick={onClick}>
 						услуги

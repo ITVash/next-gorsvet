@@ -11,10 +11,15 @@ import Contacts from "components/Contacts"
 
 export default function Home() {
 	const [currPage, setCurrPage] = React.useState<number>(0)
+	const [service, setService] = React.useState<boolean>(false)
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)
 	}
 	const nextPage = (): void => {
+		setCurrPage((prev) => prev + 1)
+	}
+	const onService = (): void => {
+		setService((prev) => !prev)
 		setCurrPage((prev) => prev + 1)
 	}
 	return (
@@ -24,10 +29,10 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 				<link rel='manifest' href='/manifest.json' />
 			</Head>
-			<Header onClick={nextPage}>
+			<Header onClick={nextPage} pages={currPage} service={service}>
 				<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
-					<Homes onClick={nextPage} />
-					<Services />
+					<Homes onClick={onService} />
+					{service && <Services />}
 					<Info />
 					<News />
 					<Contacts />

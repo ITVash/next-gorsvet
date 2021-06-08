@@ -58,7 +58,7 @@ const Info: React.FC = () => {
 				</div>
 			</div>
 			<button
-				className='button'
+				className='button_s'
 				style={{
 					left: "50%",
 					position: "absolute",

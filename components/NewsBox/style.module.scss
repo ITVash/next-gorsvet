@@ -12,6 +12,10 @@
 	box-shadow: 0px 4px 15px #ffffff;
 	backdrop-filter: blur(4px);
 	border-radius: 10px;
+	transition: all 0.3s linear;
+	&:hover {
+		margin-top: -10px;
+	}
 	a {
 		margin-top: 10px;
 		font-family: Roboto;

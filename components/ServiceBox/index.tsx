@@ -11,7 +11,7 @@ const ServiceBox: React.FC<TServiceProps> = ({ title, icon }) => {
 	return (
 		<div className={style.box}>
 			<img src={icon} alt='icon' />
-			<button className='button_s'>Подробно</button>
+			<button className='button_s'>Скачать</button>
 			<p>{title}</p>
 		</div>
 	)

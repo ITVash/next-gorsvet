@@ -35,8 +35,9 @@ const Sections: React.FC<TSections> = ({
 					<div className={style.wrap}>
 						{title && title.length > 1 && (
 							<h1 className={style.titles}>
-								<img src={icon} alt='icon' />
-								{title}
+								{icon && <img src={icon} alt='icon' />}
+								<span dangerouslySetInnerHTML={{ __html: title }} />
+								{/* title */}
 							</h1>
 						)}
 						{children}

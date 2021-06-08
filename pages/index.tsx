@@ -5,7 +5,9 @@ import React from "react"
 import Header from "components/Header"
 import Homes from "components/Home"
 import Services from "components/Services"
-import ServiceDetail from "components/ServiceDetail"
+import Info from "components/Info"
+import News from "components/News"
+import Contacts from "components/Contacts"
 
 export default function Home() {
 	const [currPage, setCurrPage] = React.useState<number>(0)
@@ -26,16 +28,9 @@ export default function Home() {
 				<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
 					<Homes onClick={nextPage} />
 					<Services />
-					<ServiceDetail />
-					<Sections types='image' src='/img/inform.jpg'>
-						Экран 4
-					</Sections>
-					<Sections types='image' src='/img/vacancies.jpg'>
-						Экран 5
-					</Sections>
-					<Sections types='image' src='/img/news.jpg'>
-						Экран 6
-					</Sections>
+					<Info />
+					<News />
+					<Contacts />
 				</ReactPS>
 			</Header>
 		</>

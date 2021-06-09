@@ -11,7 +11,10 @@ type THeader = {
 const Header: React.FC<THeader> = ({ children, onClick, pages, service }) => {
 	return (
 		<>
-			<header className={style.header}>
+			<header
+				className={classNames(style.header, {
+					display: service ? pages === 4 : pages === 3,
+				})}>
 				<div className={style.logo}>
 					<img src='/img/logo.png' alt='Logo' />
 				</div>
@@ -39,10 +42,13 @@ const Header: React.FC<THeader> = ({ children, onClick, pages, service }) => {
 				</div>
 			</header>
 			{children}
-			<footer className={style.footer}>
+			<footer
+				className={classNames(style.footer, {
+					display: service ? pages === 4 : pages === 3,
+				})}>
 				<div
 					className={classNames(style.col1, {
-						display: service ? pages > 0 && pages < 4 : pages > 0 && pages < 3,
+						display: pages > 0,
 					})}>
 					<a href='http://gorod-donetsk.com/' target='_blank' rel='noreferrer'>
 						<img src='/img/admins.svg' alt='admins' />
@@ -51,24 +57,98 @@ const Header: React.FC<THeader> = ({ children, onClick, pages, service }) => {
 				</div>
 				<div
 					className={classNames({
-						[style.col2]: pages === 0,
-						[style.col2_b]: service
-							? pages >= 1 && pages <= 3
-							: pages >= 1 && pages <= 2,
+						[style.col2]: service
+							? pages === 0 || pages === 2
+							: pages === 0 || pages === 1,
+						[style.col2_b]: service ? pages === 1 || pages === 3 : pages === 2,
 						[style.col2_n]: service ? pages === 4 : pages === 3,
 					})}>
 					<span>
 						<CaretDownOutlined
 							className={classNames({
-								nextI: pages === 0,
-								nextI_b: pages >= 1,
+								nextI: service
+									? pages === 0 || pages === 2
+									: pages === 0 || pages === 1,
+								nextI_b: service ? pages === 1 || pages === 3 : pages === 2,
+								display: service ? pages === 4 : pages === 3,
 							})}
 							onClick={onClick}
 						/>
 					</span>
 				</div>
-				{/* <div className={style.col3}>Коммерческие услуги</div> */}
 			</footer>
+			{service && pages === 4 ? (
+				<footer className={style.footCon}>
+					<div className={classNames(style.col1)}>
+						<a
+							href='http://gorod-donetsk.com/'
+							target='_blank'
+							rel='noreferrer'>
+							<img src='/img/admins.svg' alt='admins' />
+							Администрация города Донецка
+						</a>
+					</div>
+					<div className={classNames(style.col2)}>
+						<p className='gold'>
+							ККП Администрации г. Донецка «Донецкгорсвет»
+							<span style={{ color: "#FFF" }}>
+								<br /> ©2021
+							</span>
+						</p>
+					</div>
+					<div className={classNames(style.col3)}>
+						<p className='gold'>
+							Разработка сайта{" "}
+							<span style={{ color: "#FFF" }}>
+								<a href=''>Vash</a> & <a href=''>Zh3ka</a>
+							</span>
+						</p>
+						<p className='gold'>
+							Видеоматериалы{" "}
+							<span style={{ color: "#FFF" }}>
+								<a href=''>Petrechenko_ph</a>
+							</span>
+						</p>
+					</div>
+				</footer>
+			) : (
+				!service &&
+				pages === 3 && (
+					<footer className={style.footCon}>
+						<div className={classNames(style.col1)}>
+							<a
+								href='http://gorod-donetsk.com/'
+								target='_blank'
+								rel='noreferrer'>
+								<img src='/img/admins.svg' alt='admins' />
+								Администрация города Донецка
+							</a>
+						</div>
+						<div className={classNames(style.col2)}>
+							<p className='gold'>
+								ККП Администрации г. Донецка «Донецкгорсвет»
+								<span style={{ color: "#FFF" }}>
+									<br /> ©2021
+								</span>
+							</p>
+						</div>
+						<div className={classNames(style.col3)}>
+							<p className='gold'>
+								Разработка сайта{" "}
+								<span style={{ color: "#FFF" }}>
+									<a href=''>Vash</a> & <a href=''>Zh3ka</a>
+								</span>
+							</p>
+							<p className='gold'>
+								Видеоматериалы{" "}
+								<span style={{ color: "#FFF" }}>
+									<a href=''>Petrechenko_ph</a>
+								</span>
+							</p>
+						</div>
+					</footer>
+				)
+			)}
 		</>
 	)
 }

@@ -10,6 +10,7 @@
 	width: 100%;
 	top: 25px;
 	left: 0;
+	transition: all 1s linear;
 	.logo {
 		margin-right: auto;
 		grid-area: logo;
@@ -30,12 +31,72 @@
 		z-index: 10;
 		color: #fff;
 		line-height: 60px;
+
 		p {
 			transition: all 0.5s linear;
 			img {
 				margin-right: 10px;
 			}
 		}
+	}
+}
+.footCon {
+	display: grid;
+	grid-template-areas: "col-1 col-2 col-3";
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 42px 20px;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	padding: 0 40px;
+	bottom: 15px;
+	z-index: 1px;
+	transition: all 1s linear;
+	.col1 {
+		grid-area: col-1;
+		/* margin-right: auto; */
+		font-size: 12px;
+		height: 42px;
+		z-index: 10;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 12px;
+		line-height: 14px;
+		a {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			color: #fff;
+			img {
+				margin-right: 10px;
+				height: 42px;
+				object-position: 0 5px;
+			}
+		}
+	}
+	.col2 {
+		text-align: center;
+		grid-area: col-2;
+		margin: 0 auto;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 900;
+		font-size: 14px;
+		line-height: 16px;
+		span {
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+	.col3 {
+		grid-area: col-3;
+		margin-left: auto;
+		font-family: Roboto Condensed;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 14px;
 	}
 }
 .footer {
@@ -49,7 +110,7 @@
 	padding: 0 40px;
 	bottom: 15px;
 	z-index: 1px;
-	transition: all 0.5s linear;
+	transition: all 1s linear;
 	.col1 {
 		grid-area: col-1;
 		margin-right: auto;
@@ -70,6 +131,7 @@
 	}
 	.col3 {
 		grid-area: col-3;
+		grid-template-columns: 1fr;
 		font-size: 12px;
 		margin-left: auto;
 		display: flex;
@@ -77,6 +139,7 @@
 		color: #fff;
 		height: 42px;
 		z-index: 10;
+		transition: all 1s linear;
 	}
 	.col2 {
 		grid-area: col-2;
@@ -87,7 +150,9 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 10;
+		transition: all 1s linear;
 		span {
+			transition: all 1s linear;
 			&::after,
 			&::before {
 				content: "";
@@ -115,7 +180,9 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 10;
+		transition: all 1s linear;
 		span {
+			transition: all 1s linear;
 			&::after,
 			&::before {
 				content: "";
@@ -143,5 +210,6 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 10;
+		transition: all 1s linear;
 	}
 }

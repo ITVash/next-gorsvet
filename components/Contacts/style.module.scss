@@ -1,5 +1,247 @@
 .contact {
 	background: #000 url("/img/contacts.png") center center / 100% 100% no-repeat;
 	width: 100%;
+	padding: 78px 25px;
 	min-height: 100vh;
+	display: grid;
+	grid-template-areas: "title" "social" "map" "cont" "send" "form";
+	justify-items: center;
+	h1 {
+		margin: 0;
+		text-align: center;
+		height: 95px;
+		grid-area: title;
+		padding: 0px 100px 20px 100px;
+
+		font-family: Roboto Condensed;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 64px;
+		line-height: 75px;
+		/* identical to box height */
+
+		color: #ffffff;
+
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		text-transform: uppercase;
+		border-bottom: 2px solid #ffb800;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(4px);
+	}
+	.social {
+		grid-area: social;
+		text-align: center;
+		margin: 20px 0;
+	}
+	.map {
+		grid-area: map;
+		height: 3px;
+		width: 1060px;
+	}
+	.cont {
+		grid-area: cont;
+		width: 1060px;
+		height: 50px;
+		display: grid;
+		grid-template-areas: "addr email phone";
+		grid-template-columns: 1fr 1fr 1fr;
+		.addr {
+			grid-area: addr;
+			font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 21px;
+			height: 50px;
+			color: #ffffff;
+
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			img {
+				width: 42px;
+				height: 42px;
+				margin-right: 15px;
+				float: left;
+			}
+			span {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 18px;
+				line-height: 21px;
+
+				color: #ffb800;
+
+				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				backdrop-filter: blur(4px);
+			}
+		}
+		.email {
+			grid-area: email;
+			display: flex;
+			justify-content: center;
+			font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 21px;
+			height: 50px;
+			color: #ffffff;
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			img {
+				width: 42px;
+				height: 42px;
+				margin-right: 15px;
+				float: left;
+			}
+			span {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 18px;
+				line-height: 21px;
+
+				color: #ffb800;
+
+				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				/* backdrop-filter: blur(4px); */
+			}
+		}
+		.phone {
+			grid-area: phone;
+			display: flex;
+			justify-content: flex-end;
+			font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 21px;
+			height: 50px;
+			color: #ffffff;
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			img {
+				width: 42px;
+				height: 42px;
+				margin-right: 15px;
+				float: left;
+			}
+			span {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 18px;
+				line-height: 21px;
+
+				color: #ffb800;
+
+				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				/* backdrop-filter: blur(4px); */
+			}
+		}
+	}
+	h2 {
+		grid-area: send;
+		font-family: Roboto Condensed;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 36px;
+		line-height: 42px;
+
+		color: #ffffff;
+
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(4px);
+	}
+	.form {
+		grid-area: form;
+		display: grid;
+		grid-template-areas:
+			"fio phones emails"
+			"message message message"
+			"sender sender sender";
+		grid-template-columns: 1fr 1fr 1fr;
+		width: 1060px;
+		height: 600px;
+		input[type="text"] {
+			outline: none;
+			width: 256px;
+			height: 50px;
+			padding: 0 10px;
+			background: rgba(0, 0, 0, 0.25);
+			mix-blend-mode: normal;
+			border: 3px solid #ffb800;
+			box-sizing: border-box;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			backdrop-filter: blur(4px);
+			/* Note: backdrop-filter has minimal browser support */
+
+			border-radius: 100px;
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 21px;
+
+			color: #ffffff;
+		}
+		textarea {
+			outline: none;
+			width: 1062px;
+			height: 269px;
+			padding: 20px;
+			background: rgba(0, 0, 0, 0.25);
+			mix-blend-mode: normal;
+			border: 3px solid #ffb800;
+			box-sizing: border-box;
+			backdrop-filter: blur(4px);
+			/* Note: backdrop-filter has minimal browser support */
+
+			border-radius: 30px;
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 21px;
+
+			color: #ffffff;
+		}
+		button {
+			width: 169px;
+			height: 45px;
+
+			background: linear-gradient(
+				95.75deg,
+				#ffb800 5.08%,
+				#fdd366 49.05%,
+				#fff1cd 90.36%
+			);
+			mix-blend-mode: normal;
+			box-shadow: 0px 4px 50px rgba(255, 219, 126, 0.43);
+			backdrop-filter: blur(4px);
+			/* Note: backdrop-filter has minimal browser support */
+
+			border-radius: 15px;
+			font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 28px;
+
+			color: #000000;
+		}
+		.fio {
+			grid-area: fio;
+		}
+		.phones {
+			grid-area: phones;
+		}
+		.emails {
+			grid-area: emails;
+		}
+		.message {
+			grid-area: message;
+		}
+		.sender {
+			grid-area: sender;
+		}
+	}
 }

@@ -44,12 +44,12 @@
 	display: grid;
 	grid-template-areas: "col-1 col-2 col-3";
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: 42px 20px;
+	grid-template-rows: 42px 5px;
 	position: fixed;
 	left: 0;
 	width: 100%;
 	padding: 0 40px;
-	bottom: 15px;
+	bottom: 0px;
 	z-index: 1px;
 	transition: all 1s linear;
 	.col1 {

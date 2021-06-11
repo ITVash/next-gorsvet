@@ -63,6 +63,15 @@
 				float: left;
 			}
 			span {
+				font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 21px;
+			height: 50px;
+			color: #ffffff;
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			span {
 				font-family: Roboto;
 				font-style: normal;
 				font-weight: bold;
@@ -74,6 +83,7 @@
 				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 				backdrop-filter: blur(4px);
 			}
+		}
 		}
 		.email {
 			grid-area: email;
@@ -94,23 +104,7 @@
 				float: left;
 			}
 			span {
-				font-family: Roboto;
-				font-style: normal;
-				font-weight: bold;
-				font-size: 18px;
-				line-height: 21px;
-
-				color: #ffb800;
-
-				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-				/* backdrop-filter: blur(4px); */
-			}
-		}
-		.phone {
-			grid-area: phone;
-			display: flex;
-			justify-content: flex-end;
-			font-family: Roboto Condensed;
+				font-family: Roboto Condensed;
 			font-style: normal;
 			font-weight: bold;
 			font-size: 18px;
@@ -118,12 +112,6 @@
 			height: 50px;
 			color: #ffffff;
 			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-			img {
-				width: 42px;
-				height: 42px;
-				margin-right: 15px;
-				float: left;
-			}
 			span {
 				font-family: Roboto;
 				font-style: normal;
@@ -137,14 +125,49 @@
 				/* backdrop-filter: blur(4px); */
 			}
 		}
+		}
+		.phone {
+			grid-area: phone;
+			display: flex;
+			justify-content: flex-end;
+			
+			img {
+				width: 42px;
+				height: 42px;
+				margin-right: 15px;
+				float: left;
+			}
+			span {
+				font-family: Roboto Condensed;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 21px;
+			height: 50px;
+			color: #ffffff;
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				span {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 18px;
+				line-height: 21px;
+
+				color: #ffb800;
+
+				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				/* backdrop-filter: blur(4px); */
+			}
+		}
+		}
 	}
 	h2 {
 		grid-area: send;
 		font-family: Roboto Condensed;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 36px;
-		line-height: 42px;
+		font-size: 30px;
+		line-height: 36px;
 
 		color: #ffffff;
 
@@ -230,12 +253,15 @@
 		}
 		.fio {
 			grid-area: fio;
+			margin-right: auto;
 		}
 		.phones {
 			grid-area: phones;
+			margin: 0 auto;
 		}
 		.emails {
 			grid-area: emails;
+			margin-left: auto;
 		}
 		.message {
 			grid-area: message;

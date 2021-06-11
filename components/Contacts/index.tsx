@@ -12,9 +12,9 @@ const Contacts: React.FC = () => {
 			<div className={style.map}></div>
 			<div className={style.cont}>
 				<div className={style.addr}>
-					<img src='/img/addr.svg' alt='addr' />
+					<span><img src='/img/addr.svg' alt='addr' />
 					АДРЕС <br />
-					<span>г. Донецк, ул. Горького, 50</span>
+					<span>г. Донецк, ул. Горького, 50</span></span>
 				</div>
 				<div className={style.email}>
 					<img src='/img/email.svg' alt='email' />
@@ -44,7 +44,7 @@ const Contacts: React.FC = () => {
 					rows={10}
 					placeholder='Ваше сообщение'
 				/>
-				<button className={style.sender}>Отправить</button>
+				<button className='button_s'>Отправить</button>
 			</form>
 		</div>
 	)

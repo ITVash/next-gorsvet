@@ -35,7 +35,7 @@
 	}
 	.map {
 		grid-area: map;
-		height: 3px;
+		height: 1px;
 		width: 1060px;
 	}
 	.cont {
@@ -183,7 +183,7 @@
 			"sender sender sender";
 		grid-template-columns: 1fr 1fr 1fr;
 		width: 1060px;
-		height: 600px;
+		height: 550px;
 		input[type="text"] {
 			outline: none;
 			width: 256px;
@@ -209,7 +209,7 @@
 		textarea {
 			outline: none;
 			width: 1062px;
-			height: 269px;
+			height: 220px;
 			padding: 20px;
 			background: rgba(0, 0, 0, 0.25);
 			mix-blend-mode: normal;

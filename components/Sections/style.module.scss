@@ -16,8 +16,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		/* align-items: center;
-		align-content: center; */
+		align-items: center;
+		align-content: center;
 		.titles {
 			/* margin-left: 150px; */
 			margin-bottom: 70px;
@@ -61,6 +61,11 @@
 		margin: 85px 40px 75px 40px;
 		height: calc(100% - 120px);
 		z-index: 10;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
 		h1 {
 			font-size: 48px;
 			font-weight: 700;

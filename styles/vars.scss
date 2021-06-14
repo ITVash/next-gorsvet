@@ -70,9 +70,9 @@ body {
 	border: none;
 	width: 210px;
 	height: 46px;
+	padding: 10px 15px;
 	outline: none;
 	margin: 0 auto;
-	padding: 10px 15px;
 	backdrop-filter: blur(4px);
 	border-radius: 100px;
 	font-weight: 700;
@@ -100,9 +100,15 @@ body {
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1400px) {
+	.button_s,
+	.button {
+		font-size: 14px;
+		line-height: 16px;
+	}
 	.button_s {
-		font-size: 18px;
-		line-height: 20px;
+		width: auto;
+		height: 36px;
+		padding: 10px 35px;
 	}
 	.service_box {
 		padding-bottom: 50px;

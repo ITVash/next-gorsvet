@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import React from "react"
 import style from "./style.module.scss"
 const Contacts: React.FC = () => {
@@ -12,9 +13,11 @@ const Contacts: React.FC = () => {
 			<div className={style.map}></div>
 			<div className={style.cont}>
 				<div className={style.addr}>
-					<span><img src='/img/addr.svg' alt='addr' />
-					АДРЕС <br />
-					<span>г. Донецк, ул. Горького, 50</span></span>
+					<img src='/img/addr.svg' alt='addr' />
+					<span>
+						АДРЕС <br />
+						<span>г. Донецк, ул. Горького, 50</span>
+					</span>
 				</div>
 				<div className={style.email}>
 					<img src='/img/email.svg' alt='email' />
@@ -44,7 +47,17 @@ const Contacts: React.FC = () => {
 					rows={10}
 					placeholder='Ваше сообщение'
 				/>
-				<button className='button_s'>Отправить</button>
+				<button className={classNames("button_s", style.sender)}>
+					Отправить
+				</button>
+				<input
+					type='checkbox'
+					id='check'
+					className={classNames(style.checks, style.myCheck)}
+				/>{" "}
+				<label htmlFor='check' className={style.checks}>
+					Я согласен(на) на обработку моих персональных данных
+				</label>
 			</form>
 		</div>
 	)

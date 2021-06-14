@@ -11,8 +11,7 @@
 	z-index: 0;
 	.wrap {
 		margin: 85px 40px 75px 40px;
-		width: 100%;
-		height: calc(100% - 100px);
+		height: calc(100% - 120px);
 		z-index: 10;
 		display: flex;
 		flex-wrap: wrap;
@@ -59,9 +58,8 @@
 		z-index: -1;
 	}
 	.wrap {
-		padding: 85px 40px 75px 40px;
-		width: 100%;
-		height: calc(100% - 100px);
+		margin: 85px 40px 75px 40px;
+		height: calc(100% - 120px);
 		z-index: 10;
 		h1 {
 			font-size: 48px;

@@ -16,6 +16,13 @@
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1400px) {
+	.textHome {
+		h1 {
+			font-size: 48px !important;
+			font-weight: 700 !important;
+			line-height: 52px !important;
+		}
+	}
 }
 
 /* Landscape tablets and medium desktops */

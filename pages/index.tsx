@@ -14,11 +14,12 @@ import "slick-carousel/slick/slick-theme.css"
 
 export default function Home() {
 	const [currPage, setCurrPage] = React.useState<number>(0)
+	const [width, setWidth] = React.useState<number>(null)
 	const [service, setService] = React.useState<boolean>(false)
 	const widthRef = React.useRef<number>(null)
 
 	React.useEffect(() => {
-		widthRef.current = window.innerWidth
+		setWidth(window.innerWidth)
 	}, [])
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)
@@ -28,8 +29,9 @@ export default function Home() {
 	}
 	const onService = (): void => {
 		setService((prev) => !prev)
-		widthRef.current >= 992 && setCurrPage((prev) => prev + 1)
+		width >= 992 && setCurrPage((prev) => prev + 1)
 	}
+
 	return (
 		<>
 			<Head>
@@ -37,7 +39,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 				<link rel='manifest' href='/manifest.json' />
 			</Head>
-			{widthRef && widthRef.current >= 992 ? (
+			{width && width >= 992 ? (
 				<Header onClick={nextPage} pages={currPage} service={service}>
 					<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
 						<Homes onClick={onService} />
@@ -48,25 +50,28 @@ export default function Home() {
 					</ReactPS>
 				</Header>
 			) : (
-				<>
-					<Header pages={currPage} service={service}>
-						<Homes onClick={onService} />
-					</Header>
-					{service && (
-						<Header pages={1} service={service}>
-							<Services />
+				width &&
+				width < 991 && (
+					<>
+						<Header pages={currPage} service={service}>
+							<Homes onClick={onService} />
 						</Header>
-					)}
-					<Header pages={service ? 2 : 1} service={service}>
-						<Info />
-					</Header>
-					<Header pages={service ? 3 : 2} service={service}>
-						<News />
-					</Header>
-					<Header pages={service ? 4 : 3} service={service}>
-						<Contacts />
-					</Header>
-				</>
+						{service && (
+							<Header pages={1} service={service}>
+								<Services />
+							</Header>
+						)}
+						<Header pages={service ? 2 : 1} service={service}>
+							<Info />
+						</Header>
+						<Header pages={service ? 3 : 2} service={service}>
+							<News />
+						</Header>
+						<Header pages={service ? 4 : 3} service={service}>
+							<Contacts />
+						</Header>
+					</>
+				)
 			)}
 		</>
 	)

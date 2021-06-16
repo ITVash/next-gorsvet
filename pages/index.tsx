@@ -9,9 +9,17 @@ import Info from "components/Info"
 import News from "components/News"
 import Contacts from "components/Contacts"
 
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
 export default function Home() {
 	const [currPage, setCurrPage] = React.useState<number>(0)
 	const [service, setService] = React.useState<boolean>(false)
+	const widthRef = React.useRef<number>(null)
+
+	React.useEffect(() => {
+		widthRef.current = window.innerWidth
+	}, [])
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)
 	}
@@ -20,7 +28,7 @@ export default function Home() {
 	}
 	const onService = (): void => {
 		setService((prev) => !prev)
-		setCurrPage((prev) => prev + 1)
+		widthRef.current >= 992 && setCurrPage((prev) => prev + 1)
 	}
 	return (
 		<>
@@ -29,15 +37,37 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 				<link rel='manifest' href='/manifest.json' />
 			</Head>
-			<Header onClick={nextPage} pages={currPage} service={service}>
-				<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
-					<Homes onClick={onService} />
-					{service && <Services />}
-					<Info />
-					<News />
-					<Contacts />
-				</ReactPS>
-			</Header>
+			{widthRef && widthRef.current >= 992 ? (
+				<Header onClick={nextPage} pages={currPage} service={service}>
+					<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
+						<Homes onClick={onService} />
+						{service && <Services />}
+						<Info />
+						<News />
+						<Contacts />
+					</ReactPS>
+				</Header>
+			) : (
+				<>
+					<Header pages={currPage} service={service}>
+						<Homes onClick={onService} />
+					</Header>
+					{service && (
+						<Header pages={1} service={service}>
+							<Services />
+						</Header>
+					)}
+					<Header pages={service ? 2 : 1} service={service}>
+						<Info />
+					</Header>
+					<Header pages={service ? 3 : 2} service={service}>
+						<News />
+					</Header>
+					<Header pages={service ? 4 : 3} service={service}>
+						<Contacts />
+					</Header>
+				</>
+			)}
 		</>
 	)
 }

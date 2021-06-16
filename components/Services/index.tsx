@@ -31,10 +31,14 @@ const Services: React.FC = () => {
 			<div className='service_box'>
 				{service &&
 					service.map((item, idx) => (
-						<ServiceBox key={idx} title={item.title} icon={item.icon} />
+						<ServiceBox
+							key={idx + item.title}
+							title={item.title}
+							icon={item.icon}
+						/>
 					))}
 			</div>
-			<p style={{ width: "100%", textAlign: "center" }}>
+			<p style={{ width: "100%", textAlign: "center", marginBottom: "50px" }}>
 				По вопросам предоставления услуг обращайтесь в планово-экономический
 				отдел по адресу: г. Донецк, ул. Горького, 50
 			</p>

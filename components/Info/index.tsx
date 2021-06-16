@@ -4,6 +4,11 @@ import React from "react"
 import style from "./style.module.scss"
 
 const Info: React.FC = () => {
+	const widthRef = React.useRef<number>(null)
+
+	React.useEffect(() => {
+		widthRef.current = window.innerWidth
+	}, [])
 	return (
 		<Sections
 			types='image'
@@ -60,10 +65,11 @@ const Info: React.FC = () => {
 			<button
 				className='button_s'
 				style={{
-					left: "50%",
+					/* left: "50%",
 					position: "absolute",
 					bottom: "70px",
-					transform: "translateX(-50%)",
+					transform: "translateX(-50%)", */
+					marginBottom: "50px",
 				}}>
 				<b>ВАКАНСИИ</b>
 			</button>

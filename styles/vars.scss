@@ -12,6 +12,9 @@ body {
 	color: rgba(0, 0, 0, 0.25);
 	backdrop-filter: blur(4px);
 }
+.slick-slider {
+	width: auto;
+}
 .display {
 	display: none !important;
 }
@@ -121,14 +124,36 @@ body {
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+	body {
+		overflow: auto;
+	}
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+	body {
+		overflow: auto;
+	}
 }
 
 @media (max-width: 480px) {
+	body {
+		overflow: auto;
+	}
+	.service_box,
+	.news-block {
+		padding-bottom: 0;
+		margin-bottom: 50px;
+	}
+	.button_s,
+	.button {
+		font-size: 16px;
+		line-height: 20px;
+	}
 }
 /* Iphone 5 */
 @media (max-width: 320px) {
+	body {
+		overflow: auto;
+	}
 }

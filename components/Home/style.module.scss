@@ -1,0 +1,46 @@
+.textHome {
+	display: flex;
+	color: #fff;
+	height: 100%;
+	align-items: center;
+	margin-top: -40px;
+	margin-left: 120px;
+	h1 {
+		width: 564px;
+		font-family: "Roboto Condensed";
+		font-weight: bold;
+		font-size: 48px;
+		line-height: 56px;
+	}
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1400px) {
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+}
+
+@media (max-width: 480px) {
+	.textHome {
+		margin-left: 0;
+		h1 {
+			width: auto;
+			font-size: 48px;
+			line-height: 56px;
+			text-align: center;
+		}
+	}
+}
+/* Iphone 5 */
+@media (max-width: 320px) {
+}

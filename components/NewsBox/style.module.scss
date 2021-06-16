@@ -101,6 +101,13 @@
 }
 
 @media (max-width: 480px) {
+	.newsBlock {
+		width: 100%;
+		margin: 10px 0;
+		img {
+			width: 100%;
+		}
+	}
 }
 /* Iphone 5 */
 @media (max-width: 320px) {

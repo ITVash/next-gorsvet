@@ -5,12 +5,6 @@ const Contacts: React.FC = () => {
 	return (
 		<div className={style.contact}>
 			<h1>Контакты</h1>
-			<div className={style.social}>
-				<a href='/'>
-					<img src='/img/fb.svg' alt='facebook' />
-				</a>
-			</div>
-			<div className={style.map}></div>
 			<div className={style.cont}>
 				<div className={style.addr}>
 					<img src='/img/addr.svg' alt='addr' />

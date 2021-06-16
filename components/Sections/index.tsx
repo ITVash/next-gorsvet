@@ -30,7 +30,6 @@ const Sections: React.FC<TSections> = ({
 					className={style.container}
 					style={{
 						background: `url(${src}) top center no-repeat`,
-						backgroundSize: "100% 100%",
 					}}>
 					<div className={style.wrap}>
 						{title && title.length > 1 && (

@@ -3,7 +3,11 @@ import React from "react"
 import style from "./style.module.scss"
 const Contacts: React.FC = () => {
 	return (
-		<div className={style.contact}>
+		<div
+			className={style.contact}
+			style={{
+				background: `url('/img/contacts.png') center center no-repeat`,
+			}}>
 			<h1>Контакты</h1>
 			<div className={style.cont}>
 				<div className={style.addr}>

@@ -1,7 +1,10 @@
 import classNames from "classnames"
 import React from "react"
+import { useRootState } from "stores/ProviderStore"
+import { ISettings } from "types"
 import style from "./style.module.scss"
 const Contacts: React.FC = () => {
+	const settings: ISettings = useRootState().settingsStores.items
 	return (
 		<div
 			className={style.contact}
@@ -14,21 +17,21 @@ const Contacts: React.FC = () => {
 					<img src='/img/addr.svg' alt='addr' />
 					<span>
 						АДРЕС <br />
-						<span>г. Донецк, ул. Горького, 50</span>
+						<span>{settings.address}</span>
 					</span>
 				</div>
 				<div className={style.email}>
 					<img src='/img/email.svg' alt='email' />
 					<span>
 						ПОЧТА <br />
-						<span>gorsvet_pr@mail.ru</span>
+						<span>{settings.email}</span>
 					</span>
 				</div>
 				<div className={style.phone}>
 					<img src='/img/phone_c.svg' alt='phone' />
 					<span>
 						ДИСПЕТЧЕРСКАЯ <br />
-						<span>+380 (62) 338 07 50</span>
+						<span>{settings.phoneDis}</span>
 					</span>
 				</div>
 			</div>

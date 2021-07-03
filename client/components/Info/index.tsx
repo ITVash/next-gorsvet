@@ -1,11 +1,13 @@
 import Sections from "components/Sections"
 import React from "react"
+import { useRootState } from "stores/ProviderStore"
+import { ISettings } from "types"
 
 import style from "./style.module.scss"
 
 const Info: React.FC = () => {
 	const widthRef = React.useRef<number>(null)
-
+	const settings: ISettings = useRootState().settingsStores.items
 	React.useEffect(() => {
 		widthRef.current = window.innerWidth
 	}, [])
@@ -15,60 +17,17 @@ const Info: React.FC = () => {
 			src='/img/inform.jpg'
 			title='ККП АДМИНИСТРАЦИИ Г. ДОНЕЦКА «<span class="gold">ДОНЕЦКГОРСВЕТ</span>»'>
 			<div className={style.infoBox}>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>
-						Многолетний опыт работы по оформлению и содержанию системы наружного
-						освещения г. Донецка;
-					</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>
-						Праздничное оформления площадей, скверов, парков, улиц с
-						изготавлением и установкой иллюминации;
-					</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>
-						Подсветка административных, общественных зданий, памятников
-						культуры, искусства и архитектуры;
-					</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>
-						Сотрудничество с ведущими производителями светотехнической
-						продукции;
-					</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>Высококвалифицированые специалисты;</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>Спецтехника для проведения работ;</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>
-						Автоматизированная система управления городским освещением;
-					</span>
-				</div>
-				<div className={style.infoBox__item}>
-					<img src='/img/info-icon.svg' alt='iconInfo' />
-					<span>Качество выполняемых работ и доступность расценок на них;</span>
-				</div>
+				{settings &&
+					settings.shel.map((shel, idx) => (
+						<div className={style.infoBox__item} key={idx}>
+							<img src='/img/info-icon.svg' alt='iconInfo' />
+							<span>{shel}</span>
+						</div>
+					))}
 			</div>
 			<button
 				className='button_s'
 				style={{
-					/* left: "50%",
-					position: "absolute",
-					bottom: "70px",
-					transform: "translateX(-50%)", */
 					marginBottom: "50px",
 				}}>
 				<b>ВАКАНСИИ</b>

@@ -1,15 +1,37 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { SettingsModule } from './settings/settings.module';
-import { HomeModule } from './home/home.module';
-import { NewsModule } from './news/news.module';
-import { UserModule } from './user/user.module';
+import { Module } from "@nestjs/common"
+import { ConfigModule } from "@nestjs/config"
+import { SequelizeModule } from "@nestjs/sequelize"
+import { SettingsModule } from "./settings/settings.module"
+import { UsersModule } from "./users/users.module"
+import { VacanciesModule } from "./vacancies/vacancies.module"
+import { NewsModule } from "./news/news.module"
+import { AuthModule } from "./auth/auth.module"
+import { User } from "./users/user.model"
+import { Settings } from "./settings/settings.model"
+import { Vacancies } from "./vacancies/vacancies.model"
+import { News } from "./news/news.model"
 
 @Module({
-  imports: [AuthModule, SettingsModule, HomeModule, NewsModule, UserModule],
-  controllers: [AppController],
-  providers: [AppService],
+	controllers: [],
+	providers: [],
+	imports: [
+		ConfigModule.forRoot({ envFilePath: `.${process.env.NODE_ENV}.env` }),
+		SequelizeModule.forRoot({
+			dialect: "postgres",
+			host: process.env.PG_HOST,
+			port: Number(process.env.PG_PORT),
+			username: process.env.PG_USER,
+			password: process.env.PG_PASS,
+			database: process.env.PG_DB,
+			models: [User, Settings, Vacancies, News],
+			autoLoadModels: true,
+			/* synchronize: true, */
+		}),
+		SettingsModule,
+		UsersModule,
+		VacanciesModule,
+		NewsModule,
+		AuthModule,
+	],
 })
 export class AppModule {}

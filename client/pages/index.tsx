@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Sections from "components/Sections"
 import ReactPS from "react-page-scroller"
 import React from "react"
 import Header from "components/Header"
@@ -11,13 +10,16 @@ import Contacts from "components/Contacts"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
+import { settingsApi } from "stores/api"
 
-export default function Home() {
+interface IHomeProps {
+	settingsData?: InferGetServerSidePropsType<typeof getServerSideProps>
+}
+const Home: NextPage<IHomeProps> = () => {
 	const [currPage, setCurrPage] = React.useState<number>(0)
-	const [width, setWidth] = React.useState<number>(null)
+	const [width, setWidth] = React.useState<number>(992)
 	const [service, setService] = React.useState<boolean>(false)
-	const widthRef = React.useRef<number>(null)
-
 	React.useEffect(() => {
 		setWidth(window.innerWidth)
 	}, [])
@@ -31,7 +33,6 @@ export default function Home() {
 		setService((prev) => !prev)
 		width >= 992 && setCurrPage((prev) => prev + 1)
 	}
-
 	return (
 		<>
 			<Head>
@@ -41,7 +42,10 @@ export default function Home() {
 			</Head>
 			{width && width >= 992 ? (
 				<Header onClick={nextPage} pages={currPage} service={service}>
-					<ReactPS pageOnChange={handlePageChange} customPageNumber={currPage}>
+					<ReactPS
+						pageOnChange={handlePageChange}
+						customPageNumber={currPage}
+						renderAllPagesOnFirstRender={true}>
 						<Homes onClick={onService} />
 						{service && <Services />}
 						<Info />
@@ -76,3 +80,13 @@ export default function Home() {
 		</>
 	)
 }
+export const getServerSideProps: GetServerSideProps = async () => {
+	const { data } = await settingsApi.show()
+	return {
+		props: {
+			settingsData: data,
+			store: { settingsStores: data },
+		},
+	}
+}
+export default Home

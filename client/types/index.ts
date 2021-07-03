@@ -15,4 +15,13 @@ export interface ISettings {
 
 export interface IRootStoreProps {
 	settingsStores?: ISettings
+	vacanciesStores?: IVacancies[]
+}
+
+export interface IVacancies {
+	id?: number
+	title?: string
+	text?: string
+	req?: string
+	salary?: string
 }

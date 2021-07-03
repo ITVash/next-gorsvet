@@ -11,7 +11,7 @@ import Contacts from "components/Contacts"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
-import { settingsApi } from "stores/api"
+import { settingsApi, vacanciesApi } from "stores/api"
 
 interface IHomeProps {
 	settingsData?: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -82,10 +82,11 @@ const Home: NextPage<IHomeProps> = () => {
 }
 export const getServerSideProps: GetServerSideProps = async () => {
 	const { data } = await settingsApi.show()
+	const vacancies = await vacanciesApi.show()
 	return {
 		props: {
 			settingsData: data,
-			store: { settingsStores: data },
+			store: { settingsStores: data, vacanciesStores: vacancies.data },
 		},
 	}
 }

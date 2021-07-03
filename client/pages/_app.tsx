@@ -1,5 +1,4 @@
 import { NextPage } from "next"
-import { AppProps } from "next/app"
 import { RootStores } from "stores"
 import { StoreProvider } from "stores/ProviderStore"
 import "styles/globals.css"

@@ -1,9 +1,10 @@
 import classNames from "classnames"
+import { observer } from "mobx-react-lite"
 import React from "react"
 import { useRootState } from "stores/ProviderStore"
 import { ISettings } from "types"
 import style from "./style.module.scss"
-const Contacts: React.FC = () => {
+const Contacts: React.FC = observer(() => {
 	const settings: ISettings = useRootState().settingsStores.items
 	return (
 		<div
@@ -62,6 +63,6 @@ const Contacts: React.FC = () => {
 			</form>
 		</div>
 	)
-}
+})
 
 export default Contacts

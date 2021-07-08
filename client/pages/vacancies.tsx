@@ -3,15 +3,25 @@ import classNames from "classnames"
 import { observer } from "mobx-react-lite"
 import { GetServerSideProps } from "next"
 import Head from "next/head"
+import router from "next/router"
 import React from "react"
 import { settingsApi, vacanciesApi } from "stores/api"
 import { useRootState } from "stores/ProviderStore"
-import { ISettings } from "types"
+import { ISettings, IVacancies } from "types"
 import style from "./../styles/Vacancies.module.scss"
 
 const Vacancies: React.FC = observer(() => {
 	const store = useRootState()
 	const settings: ISettings = store.settingsStores.items
+	const vacancies: IVacancies[] = store.vacanciesStores.items
+	React.useEffect(() => {
+		document.body.classList.remove("oh")
+		document.body.classList.add("oa")
+		return () => {
+			document.body.classList.remove("oa")
+			document.body.classList.add("oh")
+		}
+	}, [])
 	return (
 		<>
 			<Head>
@@ -40,7 +50,43 @@ const Vacancies: React.FC = observer(() => {
 						</p>
 					</div>
 				</header>
-				<section></section>
+				<section className={style.cardBox}>
+					<h1>
+						<img src='/img/job.svg' alt='vacancies Icon' /> ВАКАНСИИ
+					</h1>
+					{vacancies &&
+						vacancies.map((item, idx) => (
+							<div className={style.cardBox__item} key={idx}>
+								<p>
+									<b>Вакансия - </b> {item.title}
+								</p>
+								<p>
+									<b>Требования к кандидатам:</b>
+									<br />
+									{item.req}
+								</p>
+								<p>
+									<b>Примечание:</b>
+									<br />
+									{item.text}
+								</p>
+								<p>
+									<b>Заработная плата:</b>
+									<br />
+									{item.salary} руб.
+								</p>
+							</div>
+						))}
+					<div className={style.home}>
+						<button
+							className='button_s'
+							onClick={() => {
+								router.push("/")
+							}}>
+							На главную
+						</button>
+					</div>
+				</section>
 				<footer className={classNames(style.footer)}>
 					<div className={classNames(style.col1)}></div>
 					<div className={classNames(style.col2_b)}>

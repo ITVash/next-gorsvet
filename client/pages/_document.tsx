@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import Document, {
 	DocumentContext,
 	Html,
@@ -16,7 +17,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang='ru'>
 				<Head />
-				<body>
+				<body className={classNames("oh")}>
 					<Main />
 					<NextScript />
 				</body>

@@ -40,7 +40,7 @@ const Home: NextPage<IHomeProps> = () => {
 				<link rel='icon' href='/favicon.ico' />
 				<link rel='manifest' href='/manifest.json' />
 			</Head>
-			{width && width >= 992 ? (
+			<div className='desc'>
 				<Header onClick={nextPage} pages={currPage} service={service}>
 					<ReactPS
 						pageOnChange={handlePageChange}
@@ -53,30 +53,36 @@ const Home: NextPage<IHomeProps> = () => {
 						<Contacts />
 					</ReactPS>
 				</Header>
+			</div>
+			<div className='mobile'>
+				<Header pages={currPage} service={service}>
+					<Homes onClick={onService} />
+				</Header>
+				{service && (
+					<Header pages={1} service={service}>
+						<Services />
+					</Header>
+				)}
+				<Header pages={service ? 2 : 1} service={service}>
+					<Info />
+				</Header>
+				<Header pages={service ? 3 : 2} service={service}>
+					<News />
+				</Header>
+				<Header pages={service ? 4 : 3} service={service}>
+					<Contacts />
+				</Header>
+			</div>
+			{/* {width && width >= 992 ? (
+				
 			) : (
 				width &&
 				width < 991 && (
 					<>
-						<Header pages={currPage} service={service}>
-							<Homes onClick={onService} />
-						</Header>
-						{service && (
-							<Header pages={1} service={service}>
-								<Services />
-							</Header>
-						)}
-						<Header pages={service ? 2 : 1} service={service}>
-							<Info />
-						</Header>
-						<Header pages={service ? 3 : 2} service={service}>
-							<News />
-						</Header>
-						<Header pages={service ? 4 : 3} service={service}>
-							<Contacts />
-						</Header>
+						
 					</>
 				)
-			)}
+			)} */}
 		</>
 	)
 }

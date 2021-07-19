@@ -2,6 +2,19 @@
 body {
 	transition: all 1s linear;
 }
+.desc {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+.mobile {
+	width: 100%;
+	height: 100%;
+	display: none;
+	flex-direction: column;
+	visibility: none;
+}
 .gold {
 	color: #ffb800;
 }
@@ -127,12 +140,34 @@ body {
 	body {
 		overflow: auto;
 	}
+	.oh {
+		overflow: auto;
+	}
+	.desc {
+		display: none;
+		visibility: none;
+	}
+	.mobile {
+		display: flex;
+		visibility: visible;
+	}
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
 	body {
 		overflow: auto;
+	}
+	.oh {
+		overflow: auto;
+	}
+	.desc {
+		display: none;
+		visibility: none;
+	}
+	.mobile {
+		display: flex;
+		visibility: visible;
 	}
 }
 

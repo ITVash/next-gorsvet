@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import style from "./style.module.scss"
+import Images from "next/image"
 
 type NewsBoxProps = {
 	data?: string
@@ -19,7 +20,14 @@ const NewsBox: React.FC<NewsBoxProps> = ({
 	return (
 		<div className={style.newsBlock}>
 			<p className={style.newsBlock__data}>{data}</p>
-			<img src={image} alt='news image' className={style.newsBlock__image} />
+			<Images
+				src={image}
+				alt='news image'
+				width={454}
+				height={415}
+				quality={50}
+			/>
+			{/* <img src={image} alt='news image' className={style.newsBlock__image} /> */}
 			<h4 className={style.newsBlock__title}>{title}</h4>
 			<p
 				className={style.newsBlock__text}

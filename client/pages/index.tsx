@@ -8,8 +8,6 @@ import Info from "components/Info"
 import News from "components/News"
 import Contacts from "components/Contacts"
 
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
 import { settingsApi, vacanciesApi } from "stores/api"
 

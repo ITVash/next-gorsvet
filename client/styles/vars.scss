@@ -2,6 +2,12 @@
 body {
 	transition: all 1s linear;
 }
+.oh {
+	overflow: hidden;
+}
+.oa {
+	overflow: auto;
+}
 .desc {
 	display: flex;
 	flex-direction: column;
@@ -25,9 +31,6 @@ body {
 	color: rgba(0, 0, 0, 0.25);
 	backdrop-filter: blur(4px);
 }
-.slick-slider {
-	width: auto;
-}
 .display {
 	display: none !important;
 }
@@ -47,19 +50,45 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
-	height: auto;
+	height: 700px;
 	flex-wrap: wrap;
-	padding-bottom: 150px;
 	width: 100%;
 }
 .service_box {
 	display: flex;
 	justify-content: center;
-	align-items: stretch;
-	height: auto;
+	align-items: center;
+	align-content: stretch;
+	height: 700px;
 	flex-wrap: wrap;
-	padding-bottom: 150px;
+	// padding-bottom: 150px;
 	width: 100%;
+	position: relative;
+}
+.slick-slider,
+.slick-list {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.slick-prev,
+.slick-next {
+	width: 50px;
+	height: 50px;
+	&::before {
+		font-size: 30px;
+		color: #373737;
+	}
+}
+.slick-prev {
+	left: -50px;
+}
+.slick-next {
+	right: -50px;
 }
 .button {
 	outline: none;
@@ -127,7 +156,10 @@ body {
 		padding: 10px 35px;
 	}
 	.service_box {
-		padding-bottom: 50px;
+		height: 380px;
+	}
+	.news-block {
+		height: 380px;
 	}
 }
 
@@ -141,7 +173,7 @@ body {
 		overflow: auto;
 	}
 	.oh {
-		overflow: auto;
+		overflow: auto !important;
 	}
 	.desc {
 		display: none;
@@ -175,10 +207,17 @@ body {
 	body {
 		overflow: auto;
 	}
+	.service_box {
+		height: 420px;
+	}
+	.news-block {
+		height: 450px;
+	}
 	.service_box,
 	.news-block {
 		padding-bottom: 0;
 		margin-bottom: 50px;
+		width: 300px;
 	}
 	.button_s,
 	.button {

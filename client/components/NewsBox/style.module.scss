@@ -62,7 +62,7 @@
 @media (min-width: 1200px) and (max-width: 1400px) {
 	.newsBlock {
 		width: 250px;
-		height: 385px;
+		height: 360px;
 		padding: 8px 10px;
 		a {
 			font-size: 12px;
@@ -102,8 +102,9 @@
 
 @media (max-width: 480px) {
 	.newsBlock {
-		width: 100%;
-		margin: 10px 0;
+		width: 280px;
+		height: 400px;
+		margin: 10px 10px;
 		img {
 			width: 100%;
 		}

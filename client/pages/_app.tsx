@@ -1,8 +1,10 @@
 import { NextPage } from "next"
 import { RootStores } from "stores"
 import { StoreProvider } from "stores/ProviderStore"
-import "styles/globals.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import "styles/vars.scss"
+import "styles/globals.css"
 
 const store = new RootStores()
 function App({

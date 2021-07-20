@@ -4,9 +4,9 @@
 	backdrop-filter: blur(4px);
 	border-radius: 35px;
 	padding: 5px 15px;
-	min-height: 454px;
+	min-height: 500px;
 	width: 338px;
-	margin: 10px 70px;
+	margin: 10px auto;
 	display: flex;
 	justify-content: center;
 	text-align: center;
@@ -16,10 +16,13 @@
 		margin-top: -20px;
 		margin-bottom: 20px;
 	}
+	.boxImage {
+		margin-bottom: 20px;
+	}
 	img {
-		height: 218px;
-		width: 218px;
-		margin: 40px auto;
+		height: 218px !important;
+		width: 218px !important;
+		margin: 40px auto !important;
 	}
 	p {
 		font-size: 18px;
@@ -33,11 +36,11 @@
 @media (min-width: 1200px) and (max-width: 1400px) {
 	.box {
 		width: 250px;
-		min-height: auto;
+		min-height: 300px;
 		img {
-			height: 100px;
-			width: 100px;
-			margin: 10px auto;
+			height: 120px !important;
+			width: 120px !important;
+			margin: 10px auto !important;
 		}
 		p {
 			font-size: 16px;
@@ -61,6 +64,27 @@
 }
 
 @media (max-width: 480px) {
+	.box {
+		width: 280px;
+		min-height: 380px;
+		margin: 10px 10px;
+		box-shadow: 0px 2px 15px #ffffff;
+		&:hover {
+			margin-top: -10px;
+			margin-bottom: 10px;
+		}
+		img {
+			height: 180px !important;
+			width: 180px !important;
+			margin: 10px auto !important;
+		}
+		p {
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 18px;
+			margin: 30px 10px 15px 10px;
+		}
+	}
 }
 /* Iphone 5 */
 @media (max-width: 320px) {

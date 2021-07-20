@@ -4,6 +4,7 @@ import Link from "next/link"
 import React from "react"
 import { useRootState } from "stores/ProviderStore"
 import { ISettings } from "types"
+import Image from "next/image"
 
 import style from "./style.module.scss"
 
@@ -22,7 +23,16 @@ const Info: React.FC = observer(() => {
 				{settings &&
 					settings.shel.map((shel, idx) => (
 						<div className={style.infoBox__item} key={idx}>
-							<img src='/img/info-icon.svg' alt='iconInfo' />
+							<div className={style.imageItem}>
+								<Image
+									src='/img/info-icon.svg'
+									alt='iconInfo'
+									width={49}
+									height={49}
+									quality={50}
+								/>
+							</div>
+							{/* <img src='/img/info-icon.svg' alt='iconInfo' /> */}
 							<span>{shel}</span>
 						</div>
 					))}

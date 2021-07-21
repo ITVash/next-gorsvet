@@ -27,14 +27,38 @@
 
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
+	.textHome {
+		h1 {
+			font-size: 46px !important;
+			font-weight: 700 !important;
+			line-height: 50px !important;
+		}
+	}
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+	.textHome {
+		h1 {
+			font-size: 42px !important;
+			font-weight: 700 !important;
+			line-height: 46px !important;
+			text-align: center;
+		}
+	}
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+	.textHome {
+		margin-left: 0;
+		h1 {
+			width: auto;
+			font-size: 48px;
+			line-height: 56px;
+			text-align: center;
+		}
+	}
 }
 
 @media (max-width: 480px) {

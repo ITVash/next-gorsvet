@@ -201,6 +201,12 @@ body {
 		display: flex;
 		visibility: visible;
 	}
+	.button {
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 @media (max-width: 480px) {
@@ -218,6 +224,12 @@ body {
 		padding-bottom: 0;
 		margin-bottom: 50px;
 		width: 300px;
+	}
+	.button {
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		transform: translateX(-50%);
 	}
 	.button_s,
 	.button {

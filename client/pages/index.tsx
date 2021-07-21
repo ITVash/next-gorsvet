@@ -18,8 +18,17 @@ const Home: NextPage<IHomeProps> = () => {
 	const [currPage, setCurrPage] = React.useState<number>(0)
 	const [width, setWidth] = React.useState<number>(992)
 	const [service, setService] = React.useState<boolean>(false)
+	const chat = async () => {
+		const chatID = -558535981
+		const api = await fetch(
+			`https://api.telegram.org/bot832124158:AAEbvNYq9jRfJmLvQAaV4XOx2H3IQOM-ZNA/sendMessage?chat_id=${chatID}&text=Тестовое сообщение!\r\nСообщение в две строки!`,
+		)
+		const res = await api.json()
+		console.log(`res`, res)
+	}
 	React.useEffect(() => {
 		setWidth(window.innerWidth)
+		chat()
 	}, [])
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)
@@ -71,16 +80,6 @@ const Home: NextPage<IHomeProps> = () => {
 					<Contacts />
 				</Header>
 			</div>
-			{/* {width && width >= 992 ? (
-				
-			) : (
-				width &&
-				width < 991 && (
-					<>
-						
-					</>
-				)
-			)} */}
 		</>
 	)
 }

@@ -111,14 +111,55 @@
 			}
 		}
 	}
+	.container_b {
+		video {
+			width: auto;
+			height: 100%;
+		}
+	}
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+	.container_b {
+		video {
+			width: auto;
+			height: 100%;
+		}
+	}
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+	.container_b {
+		video {
+			width: auto;
+			height: 100%;
+		}
+	}
+	.container {
+		background-size: auto 100% !important;
+	}
+	.container,
+	.container_b {
+		height: 100%;
+		max-height: 100%;
+		min-height: 100vh;
+		.wrap {
+			margin: 135px 25px 50px 25px;
+			height: calc(100% - 170px);
+			min-height: calc(100vh - 250px);
+			justify-content: center;
+			h1 {
+				font-size: 30px;
+				font-weight: 600;
+				img {
+					height: 28px;
+					width: 28px;
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 480px) {

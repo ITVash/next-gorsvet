@@ -1,11 +1,37 @@
 import classNames from "classnames"
 import { observer } from "mobx-react-lite"
-import React from "react"
+import React, { ChangeEvent } from "react"
 import { useRootState } from "stores/ProviderStore"
 import { ISettings } from "types"
 import style from "./style.module.scss"
+interface IForms {
+	fio?: string
+	phones?: string
+	emails?: string
+	message?: string
+}
 const Contacts: React.FC = observer(() => {
 	const settings: ISettings = useRootState().settingsStores.items
+	const [form, setForm] = React.useState<IForms>({})
+	const handleChangeElement = (
+		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => {
+		const field = e.target.id
+		const val = e.target.value
+		setForm((prev) => ({ ...prev, [field]: val }))
+	}
+	const handleSubmit = async (e: any): Promise<void> => {
+		e.preventDefault()
+		const mess: string = `Отправитель: ${form.fio}%0AТелефон: ${form.phones}%0AПочта: ${form.emails}%0AСообщение: ${form.message}`
+		await fetch(`${process.env.API_TEL}?chat_id=-558535981&text=${mess}`)
+		setForm({
+			fio: "",
+			phones: "",
+			emails: "",
+			message: "",
+		})
+		return alert("Сообщение отправленно!")
+	}
 	return (
 		<div
 			className={style.contact}
@@ -37,19 +63,42 @@ const Contacts: React.FC = observer(() => {
 				</div>
 			</div>
 			<h2>НАПИСАТЬ НАМ</h2>
-			<form className={style.form}>
-				<input type='text' placeholder='ФИО' className={style.fio} />
-				<input type='text' placeholder='Телефон' className={style.phones} />
-				<input type='text' placeholder='Email' className={style.emails} />
+			<form className={style.form} onSubmit={handleSubmit}>
+				<input
+					type='text'
+					id='fio'
+					placeholder='ФИО'
+					className={style.fio}
+					value={form.fio}
+					onChange={handleChangeElement}
+				/>
+				<input
+					type='text'
+					id='phones'
+					placeholder='Телефон'
+					className={style.phones}
+					value={form.phones}
+					onChange={handleChangeElement}
+				/>
+				<input
+					type='text'
+					id='emails'
+					placeholder='Email'
+					className={style.emails}
+					value={form.emails}
+					onChange={handleChangeElement}
+				/>
 				<textarea
 					className={style.message}
 					name=''
-					id=''
+					id='message'
 					cols={30}
 					rows={10}
 					placeholder='Ваше сообщение'
+					value={form.message}
+					onChange={handleChangeElement}
 				/>
-				<button className={classNames("button_s", style.sender)}>
+				<button className={classNames("button_s", style.sender)} type='submit'>
 					Отправить
 				</button>
 				<input
@@ -58,7 +107,9 @@ const Contacts: React.FC = observer(() => {
 					className={classNames(style.checks, style.myCheck)}
 				/>{" "}
 				<label htmlFor='check' className={style.checks}>
-					Я согласен(на) на обработку моих персональных данных
+					Нажимая кнопку отправить, Вы соглашаетесь на обработку Ваших
+					персональных данных!
+					{/* Я согласен(на) на обработку моих персональных данных */}
 				</label>
 			</form>
 		</div>

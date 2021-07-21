@@ -28,7 +28,7 @@ const Home: NextPage<IHomeProps> = () => {
 	}
 	React.useEffect(() => {
 		setWidth(window.innerWidth)
-		chat()
+		// chat()
 	}, [])
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)

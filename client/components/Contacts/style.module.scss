@@ -183,7 +183,7 @@
 			"fio phones emails"
 			"message message message"
 			"sender checks checks";
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 3fr 1fr;
 		width: 1060px;
 		height: 550px;
 		input[type="text"] {
@@ -236,16 +236,16 @@
 		.checks {
 			grid-area: checks;
 			height: 21px;
-			&:checked + label::before {
+			/* &:checked + label::before {
 				background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23ffb800' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-			}
+			} */
 		}
 		.checks + label {
 			display: inline-flex;
 			align-items: center;
 			user-select: none;
 			height: 46px;
-			&::before {
+			/* &::before {
 				content: "";
 				display: inline-block;
 				width: 1em;
@@ -258,7 +258,7 @@
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-size: 50% 50%;
-			}
+			} */
 		}
 		input[type="checkbox"] {
 			position: absolute;
@@ -275,13 +275,13 @@
 			font-family: Roboto;
 			font-style: normal;
 			font-weight: 200;
-			font-size: 18px;
-			line-height: 21px;
+			font-size: 12px;
+			line-height: 15px;
+			text-align: center;
 			/* identical to box height */
 
 			color: #ffffff;
-
-			margin-left: 30px;
+			width: 100%;
 		}
 
 		.fio {
@@ -467,14 +467,14 @@
 			grid-template-columns: 1fr;
 			height: auto;
 			margin: auto auto;
-			width: 100%;
+			width: 28%;
 			.addr,
 			.email,
 			.phone {
 				margin: 5px auto;
 				height: 40px;
-				width: 350px;
-				justify-content: center;
+				width: 100%;
+				justify-content: left;
 				img {
 					width: 32px;
 					height: 32px;
@@ -512,7 +512,7 @@
 				height: 36px;
 			}
 			input[type="text"] {
-				width: 200px;
+				width: 100%;
 				height: 35px;
 				padding: 0 10px;
 				border-radius: 100px;
@@ -560,14 +560,14 @@
 			grid-template-columns: 1fr;
 			height: auto;
 			margin: auto auto;
-			width: 100%;
+			width: 53%;
 			.addr,
 			.email,
 			.phone {
 				margin: 5px auto;
 				height: 40px;
-				width: 350px;
-				justify-content: center;
+				width: 100%;
+				justify-content: left;
 				img {
 					width: 32px;
 					height: 32px;
@@ -594,6 +594,7 @@
 				"sender";
 			grid-template-columns: 1fr;
 			grid-template-rows: 50px 50px 50px;
+
 			.fio,
 			.phones,
 			.emails,
@@ -605,7 +606,7 @@
 				height: 36px;
 			}
 			input[type="text"] {
-				width: 256px;
+				width: 100%;
 				height: 35px;
 				padding: 0 10px;
 				border-radius: 100px;
@@ -613,7 +614,7 @@
 				line-height: 215px;
 			}
 			textarea {
-				width: 350px;
+				width: 100%;
 				height: 160px;
 				padding: 10px;
 				font-size: 12px;

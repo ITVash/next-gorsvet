@@ -181,9 +181,12 @@
 		display: grid;
 		grid-template-areas:
 			"fio phones emails"
+			"fioE phonesE emailsE"
 			"message message message"
+			"messageE messageE messageE"
 			"sender checks checks";
 		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 60px 60px 230px 30px 1fr;
 		width: 1060px;
 		height: 550px;
 		input[type="text"] {
@@ -296,6 +299,30 @@
 			grid-area: emails;
 			margin-left: auto;
 		}
+		.fioE {
+			grid-area: fioE;
+			margin: 0 auto;
+			color: #ffb800;
+			font-size: 10px;
+		}
+		.phonesE {
+			grid-area: phonesE;
+			margin: 0 auto;
+			color: #ffb800;
+			font-size: 10px;
+		}
+		.emailsE {
+			grid-area: emailsE;
+			margin: 0 auto;
+			color: #ffb800;
+			font-size: 10px;
+		}
+		.messageE {
+			grid-area: messageE;
+			margin: 0 auto;
+			color: #ffb800;
+			font-size: 10px;
+		}
 		.message {
 			grid-area: message;
 		}
@@ -347,6 +374,7 @@
 		}
 		.form {
 			height: 300px;
+			grid-template-rows: 40px 30px 165px 30px 1fr;
 			.checks + label {
 				height: 36px;
 			}
@@ -381,13 +409,30 @@
 	}
 	.contact {
 		padding-top: 100px;
+		.cont {
+			width: 100%;
+			.addr,
+			.email,
+			.phone {
+				width: 235px;
+				span {
+					font-size: 14px;
+					span {
+						font-size: 14px;
+					}
+				}
+			}
+		}
 		.form {
 			height: 300px;
+			margin-bottom: 70px;
+			width: 100%;
+			grid-template-rows: 40px 30px 165px 30px 1fr;
 			.checks + label {
 				height: 36px;
 			}
 			input[type="text"] {
-				width: 256px;
+				width: 200px;
 				height: 35px;
 				padding: 0 10px;
 				border-radius: 100px;
@@ -395,7 +440,7 @@
 				line-height: 215px;
 			}
 			textarea {
-				width: 1062px;
+				width: 100%;
 				height: 160px;
 				padding: 10px;
 				font-size: 12px;
@@ -427,11 +472,12 @@
 			height: 300px;
 			margin-bottom: 70px;
 			width: 100%;
-			grid-template-areas:
+			grid-template-rows: 40px 30px 165px 30px 1fr;
+			/* grid-template-areas:
 				"fio phones emails"
 				"message message message"
 				"sender checks checks";
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr; */
 			.checks + label {
 				height: 36px;
 			}
@@ -494,13 +540,17 @@
 			width: 100%;
 			grid-template-areas:
 				"fio"
+				"fioE"
 				"phones"
+				"phonesE"
 				"emails"
+				"emailsE"
 				"message"
+				"messageE"
 				"checks"
 				"sender";
 			grid-template-columns: 1fr;
-			grid-template-rows: 50px 50px 50px;
+			grid-template-rows: 50px 20px 50px;
 			.fio,
 			.phones,
 			.emails,
@@ -587,13 +637,17 @@
 			width: 100%;
 			grid-template-areas:
 				"fio"
+				"fioE"
 				"phones"
+				"phonesE"
 				"emails"
+				"emailsE"
 				"message"
+				"messageE"
 				"checks"
 				"sender";
 			grid-template-columns: 1fr;
-			grid-template-rows: 50px 50px 50px;
+			grid-template-rows: 50px 20px 50px;
 
 			.fio,
 			.phones,

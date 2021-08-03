@@ -26,7 +26,7 @@ const Info: React.FC = observer(() => {
 							<div className={style.imageItem}>
 								<Image
 									src='/img/info-icon.svg'
-									alt='iconInfo'
+									alt='Информация'
 									width={49}
 									height={49}
 									quality={50}
@@ -38,11 +38,7 @@ const Info: React.FC = observer(() => {
 					))}
 			</div>
 			<Link href='vacancies'>
-				<button
-					className='button_s'
-					style={{
-						marginBottom: "50px",
-					}}>
+				<button className='button_s cb-50'>
 					<b>ВАКАНСИИ</b>
 				</button>
 			</Link>

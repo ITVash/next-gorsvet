@@ -4,7 +4,7 @@ const Headers = () => {
 	return (
 		<header className={style.header}>
 			<div className={style.logo}>
-				<img src='/img/logo.png' alt='Logo' />
+				<img src='/img/logo.png' alt='ДОНЕЦКГОРСВЕТ' />
 			</div>
 			<div className={style.info}>
 				<p className={style.phone}>+380 (62) 338 07 50</p>

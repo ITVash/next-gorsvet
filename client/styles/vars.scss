@@ -8,6 +8,10 @@ body {
 .oa {
 	overflow: auto;
 }
+.cb-50 {
+	position: absolute;
+	bottom: 50px;
+}
 .desc {
 	display: flex;
 	flex-direction: column;
@@ -142,9 +146,20 @@ body {
 .ml-120 {
 	margin-left: 120px;
 }
-
+@media (min-width: 1400px) {
+	.cb-50 {
+		left: 50%;
+		bottom: 50px;
+		transform: translateX(-50%);
+	}
+}
 /* Large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1400px) {
+	.cb-50 {
+		left: 50%;
+		bottom: 50px;
+		transform: translateX(-50%);
+	}
 	.button_s,
 	.button {
 		font-size: 14px;
@@ -165,10 +180,24 @@ body {
 
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
+	.cb-50 {
+		position: relative;
+		width: auto;
+		margin-top: 50px;
+		// margin: 0;
+		// margin-bottom: 50px;
+	}
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+	.cb-50 {
+		position: relative;
+		width: auto;
+		margin-top: 50px;
+		// margin: 0;
+		// margin-bottom: 50px;
+	}
 	body {
 		overflow: auto;
 	}
@@ -187,6 +216,13 @@ body {
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+	.cb-50 {
+		position: relative;
+		width: auto;
+		margin-top: 50px;
+		// margin: 0;
+		// margin-bottom: 50px;
+	}
 	body {
 		overflow: auto;
 	}
@@ -210,6 +246,13 @@ body {
 }
 
 @media (max-width: 480px) {
+	.cb-50 {
+		position: relative;
+		width: auto;
+		margin-top: 50px;
+		// margin: 0;
+		// margin-bottom: 50px;
+	}
 	body {
 		overflow: auto;
 	}

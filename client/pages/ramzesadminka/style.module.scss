@@ -1,0 +1,34 @@
+.vacancies {
+	// box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+	padding: 15px;
+	input {
+		margin-bottom: 15px;
+	}
+	&List {
+		margin-top: 15px;
+		box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+		padding: 15px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		&__item {
+			border: 1px solid #cfcfcf;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			border-radius: 10px;
+			width: 250px;
+			padding: 20px;
+			.item__id {
+				margin-top: -10px;
+				border-bottom: 1px solid #cfcfcf;
+				margin: -15px -20px 10px;
+				padding: 0 10px;
+				display: flex;
+				justify-content: space-between;
+				span,
+				b {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

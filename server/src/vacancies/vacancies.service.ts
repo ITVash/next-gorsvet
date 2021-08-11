@@ -15,7 +15,7 @@ export class VacanciesService {
 			return vac
 		} catch (error) {
 			throw new HttpException(
-				"Ошибка при создании настроек!",
+				"Ошибка при создании вакансии!",
 				HttpStatus.BAD_REQUEST,
 			)
 		}

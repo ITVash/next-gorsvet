@@ -60,7 +60,7 @@ const Vacancies: React.FC = observer(() => {
 								<p>
 									<b>Вакансия - </b> {item.title}
 								</p>
-								<p>
+								{/* <p>
 									<b>Требования к кандидатам:</b>
 									<br />
 									{item.req}
@@ -69,7 +69,7 @@ const Vacancies: React.FC = observer(() => {
 									<b>Примечание:</b>
 									<br />
 									{item.text}
-								</p>
+								</p> */}
 								<p>
 									<b>Заработная плата:</b>
 									<br />

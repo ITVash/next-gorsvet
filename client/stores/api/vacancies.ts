@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios"
 import { axios } from "core"
 import { IVacancies } from "types"
-
+// const token = !!window && localStorage.getItem("token")
 export default {
 	create: (data: IVacancies): AxiosPromise => axios.post(`vacancies`, data),
 	show: (): AxiosPromise => axios.get("vacancies"),

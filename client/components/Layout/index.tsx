@@ -5,6 +5,7 @@ import React from "react"
 import { axios } from "../../core"
 import * as crypto from "crypto"
 import jwt from "jwt-decode"
+import cooc from "js-cookie"
 
 import style from "./style.module.scss"
 import Link from "next/link"
@@ -37,6 +38,7 @@ const Layout: React.FC<ILayoutProps> = ({ title, children }) => {
 						.digest("hex"),
 				})
 				localStorage.setItem("token", data.token)
+				cooc.set("token", data.token)
 				setToken(data.token)
 			}
 		} catch (error) {

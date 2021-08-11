@@ -116,6 +116,7 @@ body {
 .button {
 	outline: none;
 	background: linear-gradient(96.67deg, #ffb800 21.07%, #ffffff 109.65%);
+	color: #000;
 	text-transform: uppercase;
 	border-radius: 100px;
 	border: none;
@@ -148,6 +149,7 @@ body {
 	line-height: 28px;
 	cursor: pointer;
 	transition: all 0.3s linear;
+	color: #000;
 	background: linear-gradient(96.67deg, #ffb800 109.65%, #ffffff 21.07%);
 	z-index: 1;
 	&:hover {

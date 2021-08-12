@@ -39,6 +39,8 @@ const initializeStore = (initialData: IRootStoreProps): RootStores => {
 			_store.settingsStores.fetchData(initialData.settingsStores)
 		initialData.vacanciesStores &&
 			_store.vacanciesStores.fetchData(initialData.vacanciesStores)
+		initialData.newsStores &&
+			_store.newsStores.fetchData(initialData.newsStores)
 	}
 	if (typeof window === "undefined") return _store
 

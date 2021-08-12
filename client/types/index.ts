@@ -16,6 +16,7 @@ export interface ISettings {
 export interface IRootStoreProps {
 	settingsStores?: ISettings
 	vacanciesStores?: IVacancies[]
+	newsStores?: INews[]
 }
 
 export interface IVacancies {
@@ -24,4 +25,13 @@ export interface IVacancies {
 	text?: string
 	req?: string
 	salary?: string
+}
+
+export interface INews {
+	id?: number
+	title?: string
+	link?: string
+	text?: string
+	images?: string[]
+	updatedAt?: string
 }

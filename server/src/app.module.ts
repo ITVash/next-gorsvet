@@ -10,12 +10,16 @@ import { User } from "./users/user.model"
 import { Settings } from "./settings/settings.model"
 import { Vacancies } from "./vacancies/vacancies.model"
 import { News } from "./news/news.model"
+import { ServeStaticModule } from "@nestjs/serve-static"
+import { FilesModule } from './files/files.module';
+import path from "path"
 
 @Module({
 	controllers: [],
 	providers: [],
 	imports: [
 		ConfigModule.forRoot({ envFilePath: `.${process.env.NODE_ENV}.env` }),
+		// ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, "imgnews") }),
 		SequelizeModule.forRoot({
 			dialect: "postgres",
 			host: process.env.PG_HOST,
@@ -32,6 +36,7 @@ import { News } from "./news/news.model"
 		VacanciesModule,
 		NewsModule,
 		AuthModule,
+		FilesModule,
 	],
 })
 export class AppModule {}

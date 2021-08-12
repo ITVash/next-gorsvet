@@ -9,7 +9,7 @@ import News from "components/News"
 import Contacts from "components/Contacts"
 
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
-import { settingsApi, vacanciesApi } from "stores/api"
+import { newsApi, settingsApi, vacanciesApi } from "stores/api"
 
 interface IHomeProps {
 	settingsData?: InferGetServerSidePropsType<typeof getServerSideProps>
@@ -18,18 +18,7 @@ const Home: NextPage<IHomeProps> = () => {
 	const [currPage, setCurrPage] = React.useState<number>(0)
 	const [width, setWidth] = React.useState<number>(992)
 	const [service, setService] = React.useState<boolean>(false)
-	const chat = async () => {
-		const chatID = -558535981
-		const api = await fetch(
-			`https://api.telegram.org/bot832124158:AAEbvNYq9jRfJmLvQAaV4XOx2H3IQOM-ZNA/sendMessage?chat_id=${chatID}&text=Тестовое сообщение!\r\nСообщение в две строки!`,
-		)
-		const res = await api.json()
-		console.log(`res`, res)
-	}
-	React.useEffect(() => {
-		setWidth(window.innerWidth)
-		// chat()
-	}, [])
+
 	const handlePageChange = (num: number) => {
 		setCurrPage(num)
 	}
@@ -86,10 +75,15 @@ const Home: NextPage<IHomeProps> = () => {
 export const getServerSideProps: GetServerSideProps = async () => {
 	const { data } = await settingsApi.show()
 	const vacancies = await vacanciesApi.show()
+	const news = await newsApi.show()
 	return {
 		props: {
 			settingsData: data,
-			store: { settingsStores: data, vacanciesStores: vacancies.data },
+			store: {
+				settingsStores: data,
+				vacanciesStores: vacancies.data,
+				newsStores: news.data,
+			},
 		},
 	}
 }

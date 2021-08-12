@@ -17,11 +17,17 @@ const NewsBox: React.FC<NewsBoxProps> = ({
 	image,
 	link,
 }) => {
+	const dataFormat = (data: string): string => {
+		const datas = new Date(data).getUTCDate()
+		const month = new Date(data).getUTCMonth()
+		const year = new Date(data).getFullYear()
+		return String(datas) + "." + String(month + 1) + "." + String(year)
+	}
 	return (
 		<div className={style.newsBlock}>
-			<p className={style.newsBlock__data}>{data}</p>
+			<p className={style.newsBlock__data}>{dataFormat(data)}</p>
 			<Images
-				src={image}
+				src={`${process.env.API_URL}news/news-photo/${image}`}
 				alt='news image'
 				width={454}
 				height={415}
@@ -33,7 +39,7 @@ const NewsBox: React.FC<NewsBoxProps> = ({
 				className={style.newsBlock__text}
 				dangerouslySetInnerHTML={{ __html: text }}
 			/>
-			<Link href={link}>
+			<Link href={`news/${link}`}>
 				<a>Перейти к новости</a>
 			</Link>
 		</div>

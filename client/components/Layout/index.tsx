@@ -50,6 +50,7 @@ const Layout: React.FC<ILayoutProps> = ({ title, children }) => {
 			const dec: any = jwt(localStorage.getItem("token"))
 			if (dec.exp * 1000 < Date.now()) {
 				localStorage.removeItem("token")
+				cooc.remove("token")
 				return
 			}
 			setToken(localStorage.getItem("token"))

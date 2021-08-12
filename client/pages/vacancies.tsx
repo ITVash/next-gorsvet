@@ -8,12 +8,73 @@ import React from "react"
 import { settingsApi, vacanciesApi } from "stores/api"
 import { useRootState } from "stores/ProviderStore"
 import { ISettings, IVacancies } from "types"
+import Slider from "react-slick"
+
 import style from "./../styles/Vacancies.module.scss"
+
+interface IButtonProps {
+	className?: any
+	style?: any
+	onClick?: any
+}
+const NextArrow: React.FC<IButtonProps> = ({ className, style, onClick }) => {
+	return (
+		<button
+			className={className}
+			style={{ ...style, right: "-25px" }}
+			onClick={onClick}
+		/>
+	)
+}
+const PrevArrow: React.FC<IButtonProps> = ({ className, style, onClick }) => {
+	return (
+		<button
+			className={className}
+			style={{ ...style, left: "-25px" }}
+			onClick={onClick}
+		/>
+	)
+}
 
 const Vacancies: React.FC = observer(() => {
 	const store = useRootState()
 	const settings: ISettings = store.settingsStores.items
 	const vacancies: IVacancies[] = store.vacanciesStores.items
+	const settingsS = {
+		dots: false,
+		infinite: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		initialSlide: 0,
+		nextArrow: <NextArrow />,
+		prevArrow: <PrevArrow />,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+					dots: false,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	}
 	React.useEffect(() => {
 		document.body.classList.remove("oh")
 		document.body.classList.add("oa")
@@ -54,29 +115,59 @@ const Vacancies: React.FC = observer(() => {
 					<h1>
 						<img src='/img/job.svg' alt='vacancies Icon' /> ВАКАНСИИ
 					</h1>
-					{vacancies &&
-						vacancies.map((item, idx) => (
-							<div className={style.cardBox__item} key={idx}>
-								<p>
-									<b>Вакансия - </b> {item.title}
-								</p>
-								{/* <p>
-									<b>Требования к кандидатам:</b>
-									<br />
-									{item.req}
-								</p>
-								<p>
-									<b>Примечание:</b>
-									<br />
-									{item.text}
-								</p> */}
-								<p>
-									<b>Заработная плата:</b>
-									<br />
-									{item.salary} руб.
-								</p>
-							</div>
-						))}
+					<div className={style.desc}>
+						{vacancies &&
+							vacancies.map((item, idx) => (
+								<div className={style.cardBox__item} key={idx}>
+									<p>
+										<b>Вакансия:</b>
+									</p>
+									<p>{item.title}</p>
+									{/* <p>
+								<b>Требования к кандидатам:</b>
+								<br />
+								{item.req}
+							</p>
+							<p>
+								<b>Примечание:</b>
+								<br />
+								{item.text}
+							</p> */}
+									<p>
+										<b>Заработная плата:</b>
+									</p>
+									<p>{item.salary} руб.</p>
+								</div>
+							))}
+					</div>
+					<div className={style.mobile}>
+						<Slider {...settingsS}>
+							{vacancies &&
+								vacancies.map((item, idx) => (
+									<div className={style.cardBox__item} key={idx}>
+										<p>
+											<b>Вакансия:</b>
+										</p>
+										<p>{item.title}</p>
+										{/* <p>
+								<b>Требования к кандидатам:</b>
+								<br />
+								{item.req}
+							</p>
+							<p>
+								<b>Примечание:</b>
+								<br />
+								{item.text}
+							</p> */}
+										<p>
+											<b>Заработная плата:</b>
+										</p>
+										<p>{item.salary} руб.</p>
+									</div>
+								))}
+						</Slider>
+					</div>
+
 					<div className={style.home}>
 						<button
 							className='button_s'

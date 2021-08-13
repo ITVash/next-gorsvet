@@ -6,6 +6,7 @@ import { newsApi } from "./api"
 class NewsStores {
 	root: RootStores
 	items: INews[] = []
+	current: INews = {}
 
 	constructor(root: RootStores) {
 		this.root = root
@@ -28,7 +29,10 @@ class NewsStores {
 
 	edit = async (obj: INews | any): Promise<void> => {
 		try {
-			const { data } = await newsApi.update(Number(obj.get("id").toString()), obj)
+			const { data } = await newsApi.update(
+				Number(obj.get("id").toString()),
+				obj,
+			)
 			this.items = this.items.map((item) =>
 				item.id === data.id ? (item = data) : item,
 			)

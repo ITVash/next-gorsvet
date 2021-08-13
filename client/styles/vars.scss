@@ -5,6 +5,16 @@ body {
 .active {
 	color: #1890ff;
 }
+.quill {
+	.ql-toolbar {
+		padding: 0 5px;
+	}
+	.ql-container {
+		.ql-editor {
+			min-height: 190px;
+		}
+	}
+}
 .auth {
 	position: absolute;
 	width: 400px;

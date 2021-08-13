@@ -2,13 +2,17 @@ import { Button, Input } from "antd"
 import Layout from "components/Layout"
 import { observer } from "mobx-react-lite"
 import React from "react"
+import dynamic from "next/dynamic"
+// import ReactQuill from "suneditor-react"
 import { useRootState } from "stores/ProviderStore"
 import { INews } from "types"
 
 import style from "./style.module.scss"
-
+// const ReactQuill = dynamic(() => import("suneditor-react"), { ssr: false })
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 const News: React.FC = observer(() => {
-	const [news, setNews] = React.useState<INews>({})
+	const [news, setNews] = React.useState<INews>({ text: "" })
+	const [text, setText] = React.useState<string>("")
 	const [image, setImage] = React.useState<any>([])
 	const [edit, setEdit] = React.useState<boolean>(false)
 	const store = useRootState()
@@ -28,7 +32,7 @@ const News: React.FC = observer(() => {
 			const attach = new FormData()
 			if (!edit) {
 				attach.append("title", news.title)
-				attach.append("text", news.text)
+				attach.append("text", text)
 				attach.append("link", Date.now().toString())
 				image.length > 0 &&
 					image.forEach((item) => attach.append("image", item))
@@ -48,12 +52,12 @@ const News: React.FC = observer(() => {
 					images: [],
 				})
 				setImage([])
+				setText("")
 				return
 			}
 			attach.append("title", news.title)
 			attach.append("id", String(news.id))
-			attach.append("text", news.text)
-			attach.append("link", Date.now().toString())
+			attach.append("text", text)
 			image.length > 0 && image.forEach((item) => attach.append("image", item))
 			store.newsStores.edit(attach)
 			setNews({
@@ -63,6 +67,7 @@ const News: React.FC = observer(() => {
 				images: [],
 			})
 			setImage([])
+			setText("")
 			setEdit(false)
 			return
 		}
@@ -71,10 +76,45 @@ const News: React.FC = observer(() => {
 	const handleEdit = async (e: INews): Promise<void> => {
 		setEdit(true)
 		setNews({ ...e })
+		setText(e.text)
 	}
+	const modules = {
+		toolbar: [
+			["bold", "italic", "underline", "strike", "blockquote"],
+			[{ size: ["small", false, "large", "huge"] }, { color: [] }],
+			[
+				{ list: "ordered" },
+				{ list: "bullet" },
+				{ indent: "-1" },
+				{ indent: "+1" },
+				{ align: [] },
+			],
+			["link", "image", "video"],
+			["clean"],
+		],
+	}
+
+	const formats = [
+		"header",
+		"bold",
+		"italic",
+		"underline",
+		"strike",
+		"blockquote",
+		"size",
+		"color",
+		"list",
+		"bullet",
+		"indent",
+		"link",
+		"image",
+		"video",
+		"align",
+	]
 	React.useEffect(() => {
 		store.newsStores.fetchData()
 	}, [])
+
 	return (
 		<Layout title='Новости'>
 			<h1>Новости</h1>
@@ -85,11 +125,20 @@ const News: React.FC = observer(() => {
 					value={news.title}
 					onChange={handleChange}
 				/>
-				<Input.TextArea
+				{/* <Input.TextArea
 					placeholder='Текст новости'
 					id='text'
 					value={news.text}
 					onChange={handleChange}
+				/> */}
+				<ReactQuill
+					theme='snow'
+					modules={modules}
+					formats={formats}
+					value={text}
+					onChange={setText}
+					/* value={news.text}
+					onChange={(e) => setNews((pre) => ({ ...pre, text: e }))} */
 				/>
 				<input type='file' onChange={addPhoto} />
 				<Button type='primary' onClick={handleAddVacancies}>

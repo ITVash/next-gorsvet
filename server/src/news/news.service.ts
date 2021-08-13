@@ -53,13 +53,15 @@ export class NewsService {
 			)
 		}
 	}
-	async showOne(link: string): Promise<News> {
+	async showOne(link: string): Promise<News[]> {
 		try {
 			const news = await this.newsModel.findOne({
 				where: { link },
 				include: { all: true },
 			})
-			return news
+			const arr: News[] = []
+			arr.push(news)
+			return arr
 		} catch (error) {
 			throw new HttpException(
 				"Ошибка при показе новости!",

@@ -28,7 +28,7 @@ const News: React.FC = observer(() => {
 		console.log(`image`, image)
 	}
 	const handleAddVacancies = (): void => {
-		if (news.title !== "" && news.text !== "") {
+		if (news.title !== "" && text !== "") {
 			const attach = new FormData()
 			if (!edit) {
 				attach.append("title", news.title)
@@ -37,12 +37,6 @@ const News: React.FC = observer(() => {
 				image.length > 0 &&
 					image.forEach((item) => attach.append("image", item))
 
-				const obj: INews = {
-					title: news.title,
-					text: news.text,
-					link: Date.now().toString(),
-					images: [],
-				}
 				store.newsStores.create(attach)
 				setNews({
 					id: undefined,

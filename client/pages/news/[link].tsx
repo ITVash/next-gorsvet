@@ -12,7 +12,14 @@ const NewsCurrent: React.FC = () => {
 	const store = useRootState()
 	const settings: ISettings = store.settingsStores.items
 	const news: INews = store.newsStores.items[0]
-	console.log(`news`, news && news.title)
+	React.useEffect(() => {
+		document.body.classList.remove("oh")
+		document.body.classList.add("oa")
+		return () => {
+			document.body.classList.remove("oa")
+			document.body.classList.add("oh")
+		}
+	}, [])
 	return (
 		<>
 			<Head>

@@ -46,6 +46,14 @@ const Layout: React.FC<ILayoutProps> = ({ title, children }) => {
 		}
 	}
 	React.useEffect(() => {
+		document.body.classList.remove("oh")
+		document.body.classList.add("oa")
+		return () => {
+			document.body.classList.remove("oa")
+			document.body.classList.add("oh")
+		}
+	}, [])
+	React.useEffect(() => {
 		if (localStorage.getItem("token")) {
 			const dec: any = jwt(localStorage.getItem("token"))
 			if (dec.exp * 1000 < Date.now()) {

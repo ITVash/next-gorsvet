@@ -8,6 +8,7 @@ import "react-quill/dist/quill.snow.css"
 import "antd/dist/antd.css"
 import "styles/vars.scss"
 import "styles/globals.css"
+import "styles/upload.css"
 
 const store = new RootStores()
 function App({

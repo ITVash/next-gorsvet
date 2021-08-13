@@ -8,6 +8,7 @@ import { useRootState } from "stores/ProviderStore"
 import { INews } from "types"
 
 import style from "./style.module.scss"
+import Upload from "components/Upload"
 // const ReactQuill = dynamic(() => import("suneditor-react"), { ssr: false })
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 const News: React.FC = observer(() => {
@@ -25,7 +26,6 @@ const News: React.FC = observer(() => {
 	const addPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files[0]
 		setImage((pre) => pre.concat(file))
-		console.log(`image`, image)
 	}
 	const handleAddVacancies = (): void => {
 		if (news.title !== "" && text !== "") {
@@ -134,6 +134,7 @@ const News: React.FC = observer(() => {
 					/* value={news.text}
 					onChange={(e) => setNews((pre) => ({ ...pre, text: e }))} */
 				/>
+				<Upload multiple listArr={image} onChange={setImage} />
 				<input type='file' onChange={addPhoto} />
 				<Button type='primary' onClick={handleAddVacancies}>
 					Добавить новость

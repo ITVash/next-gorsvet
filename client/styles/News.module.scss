@@ -31,6 +31,17 @@
 			color: #000000;
 		}
 	}
+	.images {
+		height: 500px;
+		width: 100%;
+		background-color: #fff;
+		img {
+			height: 500px;
+			object-fit: cover;
+			width: 500px;
+			cursor: pointer;
+		}
+	}
 	.header {
 		position: relative;
 		padding: 0 40px;
@@ -126,13 +137,18 @@
 			z-index: 10;
 			transition: all 1s linear;
 			span {
+				a {
+					cursor: pointer;
+					border: none;
+					background: transparent;
+				}
 				transition: all 1s linear;
 				&::after,
 				&::before {
 					content: "";
 					position: absolute;
 					height: 2px;
-					background-color: #ffb800;
+					background-color: #e5e5e5;
 					width: 45%;
 					top: 50%;
 					transform: translateY(-50%);
@@ -209,6 +225,11 @@
 	.news {
 		background-size: auto 100%;
 		background-position: 50% 100%;
+		.wrap {
+			iframe {
+				width: 100%;
+			}
+		}
 		.header {
 			grid-template-areas: "logo" "info";
 			grid-template-columns: 1fr;

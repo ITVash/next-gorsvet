@@ -5,6 +5,12 @@ body {
 .active {
 	color: #1890ff;
 }
+.news-dots {
+	top: -38px;
+	bottom: 0;
+	height: 32px;
+	width: 14%;
+}
 .quill {
 	.ql-toolbar {
 		padding: 0 5px;
@@ -286,6 +292,15 @@ body {
 }
 
 @media (max-width: 480px) {
+	.nextarr {
+		right: 5% !important;
+	}
+	.prevarr {
+		left: 5% !important;
+	}
+	.news-dots {
+		width: 71%;
+	}
 	.cb-50 {
 		position: relative;
 		width: auto;

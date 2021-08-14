@@ -22,16 +22,15 @@ export class NewsService {
 	async update(
 		id: number | string,
 		dto: CreateNewsDto | any,
-		images: string[],
+		img: string[],
 	): Promise<News> {
 		try {
 			const newsID = await this.newsModel.findByPk(Number(id))
-			if (images.length > 0) {
+			await newsID.update({ ...dto, images: JSON.parse(dto.images) })
+			if (img.length > 0) {
 				const arr: string[] = newsID.images.length > 0 ? newsID.images : []
-				images.forEach((item) => arr.push(item))
+				img.forEach((item) => arr.push(item))
 				await newsID.update({ ...dto, images: arr })
-			} else {
-				await newsID.update(dto)
 			}
 			await newsID.save()
 			return newsID

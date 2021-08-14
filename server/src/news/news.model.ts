@@ -17,9 +17,9 @@ export class News extends Model<News, INews> {
 	id: number
 	@Column({ type: DataType.STRING, allowNull: false })
 	title: string
-	@Column({ type: DataType.STRING, allowNull: false })
+	@Column({ type: DataType.STRING })
 	link: string
-	@Column({ type: DataType.STRING, allowNull: false })
+	@Column({ type: DataType.TEXT, allowNull: false })
 	text: string
 	@Column({ type: DataType.ARRAY(DataType.STRING) })
 	images: string[]

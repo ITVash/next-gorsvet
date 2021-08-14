@@ -69,7 +69,7 @@ const Upload: React.FC<TUploadProps> = ({
 						<source
 							src={
 								list && typeof list === "string"
-									? `${process.env.API_URL}/news/news-image/${list}`
+									? `${process.env.API_URL}news/news-photo/${list}`
 									: preview.current
 							}
 						/>
@@ -82,7 +82,7 @@ const Upload: React.FC<TUploadProps> = ({
 						alt=''
 						src={
 							list && typeof list === "string"
-								? `${process.env.API_URL}/news/news-image/${list}`
+								? `${process.env.API_URL}news/news-photo/${list}`
 								: preview.current
 						}
 					/>{" "}
@@ -98,8 +98,8 @@ const Upload: React.FC<TUploadProps> = ({
 								<img
 									alt=''
 									src={
-										listArr && typeof listArr[0] === "string"
-											? `${process.env.API_URL}/news/news-image/${item}`
+										listArr && typeof item === "string"
+											? `${process.env.API_URL}news/news-photo/${item}`
 											: URL.createObjectURL(item)
 									}
 								/>{" "}

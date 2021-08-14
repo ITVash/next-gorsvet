@@ -2,16 +2,79 @@ import classNames from "classnames"
 import { GetServerSideProps } from "next"
 import Head from "next/head"
 import React from "react"
+import Slider from "react-slick"
+import LightBox from "react-image-lightbox"
 import { newsApi, settingsApi } from "stores/api"
 import { useRootState } from "stores/ProviderStore"
 import { INews, ISettings } from "types"
 
 import style from "../../styles/News.module.scss"
-
+import Link from "next/link"
+interface IButtonProps {
+	className?: any
+	style?: any
+	onClick?: any
+}
+const NextArrow: React.FC<IButtonProps> = ({ className, style, onClick }) => {
+	return (
+		<button
+			className={classNames(className, "nextarr")}
+			style={{ ...style, right: "40%", top: "-20px" }}
+			onClick={onClick}
+		/>
+	)
+}
+const PrevArrow: React.FC<IButtonProps> = ({ className, style, onClick }) => {
+	return (
+		<button
+			className={classNames(className, "prevarr")}
+			style={{ ...style, left: "40%", top: "-20px" }}
+			onClick={onClick}
+		/>
+	)
+}
 const NewsCurrent: React.FC = () => {
 	const store = useRootState()
+	const [photo, setPhoto] = React.useState<number>(0)
+	const [open, setOpen] = React.useState<boolean>(false)
 	const settings: ISettings = store.settingsStores.items
 	const news: INews = store.newsStores.items[0]
+	const settingsS = {
+		dots: true,
+		dotsClass: "slick-dots news-dots",
+		infinite: false,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		nextArrow: <NextArrow />,
+		prevArrow: <PrevArrow />,
+		initialSlide: 0,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+					dots: false,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	}
 	React.useEffect(() => {
 		document.body.classList.remove("oh")
 		document.body.classList.add("oa")
@@ -49,7 +112,55 @@ const NewsCurrent: React.FC = () => {
 					<h1>{news && news.title}</h1>
 					<div dangerouslySetInnerHTML={{ __html: news && news.text }} />
 				</section>
+				<section className={style.images}>
+					<Slider {...settingsS}>
+						{news &&
+							news.images.map((item, idx) => (
+								<img
+									src={`${process.env.API_URL}news/news-photo/${item}`}
+									alt='img'
+									key={idx + Date.now()}
+									onClick={() => {
+										setPhoto(idx)
+										setOpen(true)
+									}}
+								/>
+							))}
+					</Slider>
+				</section>
+				<footer className={classNames(style.footer)}>
+					<div className={classNames(style.col1)}></div>
+					<div className={classNames(style.col2)}>
+						<span>
+							<Link href='/'>
+								<a>На главную</a>
+							</Link>
+						</span>
+					</div>
+				</footer>
 			</div>
+			{open && (
+				<LightBox
+					mainSrc={
+						news &&
+						`${process.env.API_URL}news/news-photo/${news.images[photo]}`
+					}
+					nextSrc={news && news.images[(photo + 1) % news.images.length]}
+					prevSrc={
+						news &&
+						news.images[(photo + news.images.length - 1) % news.images.length]
+					}
+					onCloseRequest={() => setOpen(false)}
+					onMovePrevRequest={() =>
+						setPhoto(
+							(prev) => (prev + news.images.length - 1) % news.images.length,
+						)
+					}
+					onMoveNextRequest={() =>
+						setPhoto((prev) => (prev + 1) % news.images.length)
+					}
+				/>
+			)}
 		</>
 	)
 }

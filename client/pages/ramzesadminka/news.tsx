@@ -32,10 +32,17 @@ const News: React.FC = observer(() => {
 			const attach = new FormData()
 			if (!edit) {
 				attach.append("title", news.title)
-				attach.append("text", text)
+				attach.append("text", String(text))
 				attach.append("link", Date.now().toString())
 				image.length > 0 &&
-					image.forEach((item) => attach.append("image", item))
+					image.forEach((item) => {
+						if (typeof item !== "string") {
+							console.log(item, typeof item)
+							attach.append("image", item)
+							image.filter((img) => img !== item)
+						}
+					})
+				attach.append("images", JSON.stringify(image))
 
 				store.newsStores.create(attach)
 				setNews({
@@ -51,8 +58,20 @@ const News: React.FC = observer(() => {
 			}
 			attach.append("title", news.title)
 			attach.append("id", String(news.id))
-			attach.append("text", text)
-			image.length > 0 && image.forEach((item) => attach.append("image", item))
+			attach.append("text", String(text))
+			attach.append("link", news.link)
+			const old: string[] = []
+			image.length > 0 &&
+				image.forEach((item) => {
+					if (typeof item !== "string") {
+						console.log(item, typeof item)
+						attach.append("image", item)
+					} else {
+						old.push(item)
+					}
+				})
+			attach.append("images", JSON.stringify(old))
+
 			store.newsStores.edit(attach)
 			setNews({
 				id: undefined,
@@ -71,6 +90,7 @@ const News: React.FC = observer(() => {
 		setEdit(true)
 		setNews({ ...e })
 		setText(e.text)
+		setImage(e.images)
 	}
 	const modules = {
 		toolbar: [
@@ -119,12 +139,6 @@ const News: React.FC = observer(() => {
 					value={news.title}
 					onChange={handleChange}
 				/>
-				{/* <Input.TextArea
-					placeholder='Текст новости'
-					id='text'
-					value={news.text}
-					onChange={handleChange}
-				/> */}
 				<ReactQuill
 					theme='snow'
 					modules={modules}
@@ -135,7 +149,7 @@ const News: React.FC = observer(() => {
 					onChange={(e) => setNews((pre) => ({ ...pre, text: e }))} */
 				/>
 				<Upload multiple listArr={image} onChange={setImage} />
-				<input type='file' onChange={addPhoto} />
+				{/* <input type='file' onChange={addPhoto} /> */}
 				<Button type='primary' onClick={handleAddVacancies}>
 					Добавить новость
 				</Button>
@@ -157,7 +171,10 @@ const News: React.FC = observer(() => {
 									</span>
 								</p>
 								<p className={style.item__title}>{item.title}</p>
-								<p className={style.item__price}>{item.text}</p>
+								<p
+									className={style.item__price}
+									dangerouslySetInnerHTML={{ __html: item.text }}
+								/>
 							</div>
 						))}
 				</div>

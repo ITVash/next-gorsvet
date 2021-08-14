@@ -30,7 +30,7 @@ const Contacts: React.FC = observer(() => {
 	}
 	const checkEmail = (str: string) => {
 		const testEmail = new RegExp(
-			/^([a-zA-Z0-9\_\.]{2,15}[\@][a-z]{2,10}[\.][a-z]{2,3})$/,
+			/^([a-zA-Z0-9\_\.]{2,50}[\@][a-z]{2,15}[\.][a-z]{2,3})$/,
 			"gm",
 		)
 		return testEmail.test(str)

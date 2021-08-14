@@ -28,9 +28,7 @@ export class NewsController {
 			storage: diskStorage({
 				destination: "./imgnews",
 				filename: (req, file, cb) => {
-					const filename: string =
-						path.parse(file.originalname).name.replace(/\s/g, "") +
-						`files_${Date.now().toString()}`
+					const filename: string = `files_${Date.now().toString()}`
 					const ext: string = path.parse(file.originalname).ext
 					cb(null, `${filename}${ext}`)
 				},
@@ -55,9 +53,10 @@ export class NewsController {
 			storage: diskStorage({
 				destination: "./imgnews",
 				filename: (req, file, cb) => {
-					const filename: string =
+					const filename: string = `files_${Date.now().toString()}`
+					/* const filename: string =
 						path.parse(file.originalname).name.replace(/\s/g, "") +
-						`files_${Date.now().toString()}`
+						`files_${Date.now().toString()}` */
 					const ext: string = path.parse(file.originalname).ext
 					cb(null, `${filename}${ext}`)
 				},

@@ -34,4 +34,5 @@ export interface INews {
 	text?: string
 	images?: string[]
 	updatedAt?: string
+	createdAt?: string
 }

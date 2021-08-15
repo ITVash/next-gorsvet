@@ -52,7 +52,7 @@ const News: React.FC = observer(() => {
 					{news &&
 						news.map((item, idx) => (
 							<NewsBox
-								data={item.updatedAt}
+								data={item.createdAt}
 								title={item.title}
 								text={item.text}
 								link={item.link}

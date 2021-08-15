@@ -43,7 +43,10 @@ export class NewsService {
 	}
 	async showAll(): Promise<News[]> {
 		try {
-			const news = await this.newsModel.findAll({ include: { all: true } })
+			const news = await this.newsModel.findAll({
+				include: { all: true },
+				order: [["createdAt", "DESC"]],
+			})
 			return news
 		} catch (error) {
 			throw new HttpException(

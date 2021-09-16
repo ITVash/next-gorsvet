@@ -16,7 +16,11 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang='ru'>
-				<Head />
+				<Head>
+					<title>Донецкгорсвет</title>
+					<link rel='icon' href='/favicon.ico' />
+					<link rel='manifest' href='/manifest.json' />
+				</Head>
 				<body className={classNames("oh")}>
 					<Main />
 					<NextScript />

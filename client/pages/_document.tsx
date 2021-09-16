@@ -17,14 +17,14 @@ class MyDocument extends Document {
 		return (
 			<Html lang='ru'>
 				<Head>
+					<meta charset='utf-8' />
+					<meta http-equiv='X-UA-Compatible' content='IE=edge' />
 					<title>Донецкгорсвет</title>
 					<link rel='icon' href='/favicon.ico' />
 					<meta
 						name='viewport'
 						content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
 					/>
-					<meta charset='utf-8' />
-					<meta http-equiv='X-UA-Compatible' content='IE=edge' />
 					<meta name='application-name' content='Донецкгорсвет' />
 					<meta name='apple-mobile-web-app-capable' content='yes' />
 					<meta

@@ -17,7 +17,6 @@ class MyDocument extends Document {
 		return (
 			<Html lang='ru'>
 				<Head>
-					<meta charset='utf-8' />
 					<meta http-equiv='X-UA-Compatible' content='IE=edge' />
 					<title>Донецкгорсвет</title>
 					<link rel='icon' href='/favicon.ico' />

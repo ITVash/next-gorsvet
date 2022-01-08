@@ -2,6 +2,8 @@
 
 # dependencies
 /client/node_modules
+/client-new/node_modules
+/testnext/node_modules
 /server/node_modules
 /server/dist
 /server/imgnews
@@ -13,6 +15,8 @@
 
 # next.js
 /client/.next/
+/client-new/.next/
+/testnext/.next/
 /out/
 
 # production

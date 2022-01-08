@@ -1,0 +1,29 @@
+<svg width="235" height="268" viewBox="0 0 235 268" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)" filter="url(#filter0_bd)">
+<path d="M99.5864 26.3094L94.277 21L25.0379 90.2409L30.3454 95.5485L58.547 67.3488L99.5864 26.3094Z" fill="#3E3D42"/>
+<path d="M139.157 69.2313L77.3726 96.6791L73.6074 98.3723L71.3848 99.3522L68.298 92.5004L73.6074 90.1269L77.3726 88.4705L136.07 62.3795L139.157 69.2313Z" fill="#57565C"/>
+<path d="M167.735 84.6301H175.265V99.6905H167.735V84.6301Z" fill="#EE8700"/>
+<path d="M186.671 85.5419L193.972 83.7164L197.737 98.7768L190.436 100.602L186.671 85.5419Z" fill="#EE8700"/>
+<path d="M145.257 98.7824L149.018 83.7219L156.32 85.5457L152.559 100.606L145.257 98.7824Z" fill="#EE8700"/>
+<path d="M133.849 69.5696C133.849 71.6489 135.535 73.3347 137.614 73.3347H205.386C207.466 73.3347 209.151 71.6489 209.151 69.5696V62.0394H133.849V69.5696Z" fill="#FFA733"/>
+<path d="M73.6074 52.2883V239H58.547V67.3488L73.6074 52.2883Z" fill="#57565C"/>
+<path d="M73.6074 52.2883V56.0534L58.547 71.1139V67.3488L73.6074 52.2883Z" fill="#3F3E42"/>
+<path d="M77.3725 88.4705V96.6791L73.6074 98.3723V90.1269L77.3725 88.4705Z" fill="#3F3E42"/>
+</g>
+<defs>
+<filter id="filter0_bd" x="-17" y="0" width="268" height="268" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="2"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="12.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_backgroundBlur" result="effect2_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+</filter>
+<clipPath id="clip0">
+<rect width="218" height="218" fill="white" transform="translate(8 21)"/>
+</clipPath>
+</defs>
+</svg>
